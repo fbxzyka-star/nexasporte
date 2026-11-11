@@ -471,7 +471,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border-radius: 50%;
   box-shadow: 0 0 0 3px rgba(227, 38, 45, .16), 0 0 24px -4px rgba(227, 38, 45, .6);
 }
-.hero-sponsor p { display: grid; gap: 2px; line-height: 1.15; }
+.hero-sponsor-text { display: grid; gap: 2px; line-height: 1.15; }
 .hero-sponsor small {
   color: #ff5a5f;
   font-size: 11px;
@@ -480,6 +480,26 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   text-transform: uppercase;
 }
 .hero-sponsor strong { font-size: 17px; font-weight: 600; }
+.hero-sponsor img { transition: box-shadow .3s ease, transform .3s ease; }
+.hero-sponsor .ext {
+  display: inline-block;
+  width: .8em; height: .8em;
+  margin-left: 2px;
+  vertical-align: -.05em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .55;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.hero-sponsor:hover img {
+  transform: scale(1.06) rotate(-4deg);
+  box-shadow: 0 0 0 3px rgba(227, 38, 45, .3), 0 0 32px -2px rgba(227, 38, 45, .8);
+}
+.hero-sponsor:hover strong { color: #fff; }
+.hero-sponsor:hover .ext { opacity: 1; transform: translate(2px, -2px); }
 
 /* footer mention */
 .footer-sponsor {
@@ -491,6 +511,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .footer-sponsor img { width: 30px; height: 30px; border-radius: 50%; }
 .footer-sponsor strong { color: var(--text); font-weight: 600; }
+.footer-sponsor { transition: color .2s ease; }
+.footer-sponsor:hover, .footer-sponsor:hover strong { color: #ff5a5f; }
 
 /* ---------- Sections ---------- */
 .section { position: relative; padding: 120px 0; }
