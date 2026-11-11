@@ -375,28 +375,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-size: clamp(16px, 2.6vh, 19px);
 }
 
-.play-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  font-weight: 500;
-  font-size: 18px;
-}
-.play-icon {
-  display: grid;
-  place-items: center;
-  width: clamp(44px, 7vh, 54px); height: clamp(44px, 7vh, 54px);
-  border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,.6);
-  transition: border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
-}
-.play-icon svg { width: 22px; height: 22px; fill: var(--text); margin-left: 3px; }
-.play-link:hover .play-icon {
-  border-color: var(--green);
-  background: rgba(76, 243, 90, .1);
-  box-shadow: 0 0 20px -4px var(--green-glow);
-}
-
 /* scroll-down arrow */
 .scroll-down {
   position: absolute;
@@ -917,14 +895,10 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .br-desktop { display: none; }
   .hero-actions { gap: 16px; margin-top: 26px; }
   .hero-actions .btn-lg { width: 100%; padding: 18px 24px; font-size: 17px; }
-  .play-link { font-size: 16px; gap: 12px; }
-  .play-icon { width: 42px; height: 42px; }
-  .play-icon svg { width: 18px; height: 18px; }
-  .hero-sponsor { gap: 9px; padding-left: 14px; }
-  .hero-sponsor img { width: 34px; }
-  .hero-sponsor small { font-size: 8.5px; letter-spacing: .08em; }
-  .hero-sponsor strong { font-size: 14px; }
-  .hide-sm { display: none; }
+  .hero-sponsor { padding-left: 0; border-left: 0; gap: 12px; }
+  .hero-sponsor img { width: 42px; }
+  .hero-sponsor small { font-size: 10px; letter-spacing: .12em; }
+  .hero-sponsor strong { font-size: 16px; }
 
   /* compact 2×2 feature strip */
   .hero-strip { gap: 16px 12px; padding-top: 18px; }
@@ -946,14 +920,6 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .cta-inner .btn { width: 100%; }
   .contact-form { padding: 24px 18px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
-}
-
-@media (max-width: 374px) {
-  .hero-actions { column-gap: 12px; }
-  .play-link { font-size: 15px; gap: 10px; }
-  .play-icon { width: 38px; height: 38px; }
-  .hero-sponsor { padding-left: 12px; gap: 8px; }
-  .hero-sponsor img { width: 32px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
