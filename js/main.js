@@ -266,6 +266,95 @@
     if (e.target.classList.contains("invalid")) e.target.classList.remove("invalid");
   });
 
+  /* ---------- Hero background slideshow ----------
+     The first photo is in the CSS and shows immediately. The others are
+     downloaded in the background after the page has loaded (in the size
+     that suits the screen) and join the rotation once they are ready. */
+  (function heroSlideshow() {
+    var slides = Array.prototype.slice.call(document.querySelectorAll(".hero-slide"));
+    if (slides.length < 2 || reduceMotion.matches) return;
+
+    var SHOW_MS = 6500;          // time each photo stays before the next fades in
+    var FADE_MS = 1600;          // must match the CSS opacity transition
+    var current = 0;
+    var timer = null;
+    var heroVisible = true;
+
+    slides[0].ready = true;
+
+    function pickSrc(el) {
+      if (window.matchMedia("(max-width: 640px)").matches) return el.getAttribute("data-src-sm");
+      if (window.matchMedia("(max-width: 1400px)").matches) return el.getAttribute("data-src-md");
+      return el.getAttribute("data-src-lg");
+    }
+
+    function loadSlide(el) {
+      return new Promise(function (resolve) {
+        var src = pickSrc(el);
+        var img = new Image();
+        img.onload = function () {
+          var show = function () {
+            el.style.backgroundImage = 'url("' + src + '")';
+            el.ready = true;
+            resolve();
+          };
+          if (img.decode) img.decode().then(show, show); else show();
+        };
+        img.onerror = function () { resolve(); };
+        img.src = src;
+      });
+    }
+
+    function nextReady() {
+      for (var i = 1; i < slides.length; i++) {
+        var idx = (current + i) % slides.length;
+        if (slides[idx].ready) return idx;
+      }
+      return -1;
+    }
+
+    function advance() {
+      var next = nextReady();
+      if (next === -1) return;
+      var prev = slides[current];
+      var incoming = slides[next];
+
+      prev.classList.remove("is-active");
+      prev.classList.add("is-leaving");
+      // restart the zoom on the incoming photo
+      incoming.classList.remove("is-leaving");
+      void incoming.offsetWidth;
+      incoming.classList.add("is-active");
+      setTimeout(function () { prev.classList.remove("is-leaving"); }, FADE_MS + 50);
+      current = next;
+    }
+
+    function schedule() {
+      clearTimeout(timer);
+      if (document.hidden || !heroVisible) return;
+      timer = setTimeout(function () { advance(); schedule(); }, SHOW_MS);
+    }
+
+    // pause while the tab is hidden or the hero is scrolled out of view
+    document.addEventListener("visibilitychange", schedule);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        heroVisible = entries[0].isIntersecting;
+        schedule();
+      }).observe(hero);
+    }
+
+    function start() {
+      // load the remaining photos one after another so they don't compete
+      slides.slice(1).reduce(function (p, el) {
+        return p.then(function () { return loadSlide(el); });
+      }, Promise.resolve());
+      schedule();
+    }
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start);
+  })();
+
   /* ---------- Tagline: spread letters evenly to the wordmark width ---------- */
   var taglines = document.querySelectorAll(".brand-tagline");
   function fitTaglines() {

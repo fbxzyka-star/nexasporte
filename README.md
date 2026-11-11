@@ -37,4 +37,15 @@ For GitHub Pages: *Settings → Pages → Deploy from branch → `main` / root*.
 
 ## Credits
 
-Stadium photo by Mario Klassen on [Unsplash](https://unsplash.com/photos/70YxSTWa2Zw).
+Photos from [Unsplash](https://unsplash.com):
+
+- Football stadium — Mario Klassen ([photo](https://unsplash.com/photos/70YxSTWa2Zw))
+- Basketball — Markus Spiske ([photo](https://unsplash.com/photos/0It4NhP_9kQ))
+- Volleyball — Daniil Kazorin ([photo](https://unsplash.com/photos/Ks7MelbFadw))
+
+## Hero slideshow
+
+The hero background rotates through the photos with a crossfade and a slow zoom-out.
+To add another sport: put web-ready versions in `assets/img/` (`<name>-3200.webp`, `-2400`, `-1600`)
+and copy one of the `<div class="hero-slide ...">` lines in `index.html` with the new file names.
+Timing is set by `SHOW_MS` in `js/main.js`.

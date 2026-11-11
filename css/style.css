@@ -241,27 +241,60 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   border-bottom: 1px solid var(--border);
 }
 
+/* background slideshow: crossfade + slow zoom-out */
 .hero-bg {
-  --hero-img: url("../assets/img/stadium-3200.webp");
   position: absolute;
   inset: 0;
   z-index: -2;
+  overflow: hidden;
+  background: var(--bg);
+}
+.hero-bg::after { /* readability overlay above every slide */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
   background:
     linear-gradient(90deg, rgba(5,7,6,.96) 0%, rgba(5,7,6,.85) 24%, rgba(5,7,6,.35) 48%, rgba(5,7,6,0) 70%, rgba(5,7,6,.1) 100%),
-    linear-gradient(180deg, rgba(5,7,6,.75) 0%, rgba(5,7,6,0) 16%, rgba(5,7,6,0) 66%, rgba(5,7,6,.9) 94%, var(--bg) 100%),
-    var(--hero-img) 68% 40% / cover no-repeat;
-  animation: heroZoom 18s ease-out both;
+    linear-gradient(180deg, rgba(5,7,6,.75) 0%, rgba(5,7,6,0) 16%, rgba(5,7,6,0) 66%, rgba(5,7,6,.9) 94%, var(--bg) 100%);
 }
-@media (max-width: 1400px) {
-  .hero-bg { --hero-img: url("../assets/img/stadium-2400.webp"); }
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: var(--pos, center);
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1.6s ease;
+  will-change: opacity, transform;
 }
-@media (max-width: 640px) {
-  .hero-bg { --hero-img: url("../assets/img/stadium-1600.webp"); }
+.hero-slide.is-active {
+  z-index: 2;
+  opacity: 1;
+  animation: slideZoom 9s cubic-bezier(.25, .1, .25, 1) forwards;
+}
+.hero-slide.is-leaving {
+  z-index: 1;
+  opacity: 1;          /* stays underneath while the next photo fades in on top */
+  transform: scale(1); /* and stays where its zoom ended */
+}
+@keyframes slideZoom {
+  from { transform: scale(1.1); }
+  to   { transform: scale(1); }
 }
 
-@keyframes heroZoom {
-  from { transform: scale(1.08); }
-  to   { transform: scale(1); }
+.slide-football   { --pos: 68% 40%; background-image: url("../assets/img/stadium-3200.webp"); }
+.slide-basketball { --pos: 55% 60%; }
+.slide-volleyball { --pos: 58% 78%; }
+@media (max-width: 1400px) {
+  .slide-football { background-image: url("../assets/img/stadium-2400.webp"); }
+}
+@media (max-width: 640px) {
+  .slide-football { background-image: url("../assets/img/stadium-1600.webp"); --pos: 70% center; }
+  .slide-basketball { --pos: 38% center; }
+  .slide-volleyball { --pos: 50% center; }
+}
 }
 
 /* diagonal neon lines */
@@ -838,10 +871,8 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .brand-text { width: 172px; }
   .brand-tagline { font-size: 7px; margin-top: 4px; padding-top: 5px; }
 
-  .hero-bg {
-    background:
-      linear-gradient(180deg, rgba(5,7,6,.9) 0%, rgba(5,7,6,.7) 40%, rgba(5,7,6,.55) 65%, var(--bg) 100%),
-      var(--hero-img) 70% center / cover no-repeat;
+  .hero-bg::after {
+    background: linear-gradient(180deg, rgba(5,7,6,.9) 0%, rgba(5,7,6,.76) 40%, rgba(5,7,6,.64) 65%, var(--bg) 100%);
   }
   .hero-lines span:nth-child(2), .hero-lines span:nth-child(3) { display: none; }
   .hero-inner { padding-top: 22px; padding-bottom: 46px; gap: 24px; }
@@ -882,4 +913,5 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
+  .hero-slide { transform: none; }
 }
