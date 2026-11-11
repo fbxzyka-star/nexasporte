@@ -295,7 +295,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .slide-basketball { --pos: 38% center; }
   .slide-volleyball { --pos: 50% center; }
 }
-}
 
 /* diagonal neon lines */
 .hero-lines { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
@@ -480,79 +479,29 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .brand-tagline { font-size: 7.5px; margin-top: 5px; padding-top: 5px; }
 }
 
-/* ---------- Digital sponsor ---------- */
-.partner { position: relative; padding: 72px 0 0; }
-.partner-card {
-  --club-red: #e3262d;
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr;
+/* hero sponsor badge (sits in the CTA row) */
+.hero-sponsor {
+  display: flex;
   align-items: center;
-  gap: 64px;
-  padding: 44px 56px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  background:
-    radial-gradient(420px 260px at 12% 50%, rgba(227, 38, 45, .16), transparent 70%),
-    radial-gradient(520px 260px at 100% 0%, rgba(76, 243, 90, .07), transparent 70%),
-    var(--surface-solid);
-  overflow: hidden;
-  isolation: isolate;
+  gap: 12px;
+  padding-left: 28px;
+  border-left: 1px solid var(--border-strong);
 }
-.partner-card::before { /* club stripes, very faint */
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: repeating-linear-gradient(-45deg, rgba(227, 38, 45, .05) 0 22px, transparent 22px 56px);
-  -webkit-mask-image: linear-gradient(90deg, #000, transparent 55%);
-          mask-image: linear-gradient(90deg, #000, transparent 55%);
-}
-.partner-card::after { /* glow line on top, red into green */
-  content: "";
-  position: absolute;
-  top: 0; left: 8%; right: 8%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--club-red) 30%, var(--green) 70%, transparent);
-  box-shadow: 0 0 12px rgba(227, 38, 45, .4);
-}
-
-.partner-lockup { display: flex; align-items: center; gap: 22px; }
-.lockup-badge {
-  display: grid;
-  place-items: center;
-  width: 120px; height: 120px;
+.hero-sponsor img {
+  width: clamp(40px, 6.4vh, 48px);
+  height: auto;
   border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(227, 38, 45, .16), 0 0 24px -4px rgba(227, 38, 45, .6);
 }
-.lockup-nexa {
-  width: 96px; height: 96px;
-  border-radius: 24px;
-  background: radial-gradient(circle at 50% 30%, rgba(76,243,90,.14), rgba(76,243,90,.02) 70%), #070a08;
-  border: 1px solid rgba(76, 243, 90, .3);
-  box-shadow: 0 0 34px -10px var(--green-glow);
+.hero-sponsor p { display: grid; gap: 2px; line-height: 1.15; }
+.hero-sponsor small {
+  color: #ff5a5f;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
-.lockup-nexa img { width: 66%; height: auto; }
-.lockup-club {
-  width: 148px; height: 148px;
-  box-shadow: 0 0 0 6px rgba(227, 38, 45, .12), 0 0 60px -6px rgba(227, 38, 45, .55);
-  animation: crestFloat 5s ease-in-out infinite;
-}
-.lockup-club img { width: 100%; height: auto; border-radius: 50%; }
-.lockup-x { color: var(--dim); font-size: 30px; font-weight: 300; line-height: 1; }
-@keyframes crestFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-6px); }
-}
-
-.partner-copy .eyebrow { color: var(--club-red); margin-bottom: 12px; }
-.partner-copy h2 { font-size: clamp(28px, 3.2vw, 42px); }
-.club-name {
-  background: linear-gradient(90deg, #ff4b4f, var(--club-red));
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-}
-.partner-copy p:not(.eyebrow) { margin-top: 14px; max-width: 640px; color: var(--muted); font-size: 18px; }
+.hero-sponsor strong { font-size: 17px; font-weight: 600; }
 
 /* footer mention */
 .footer-sponsor {
@@ -941,9 +890,6 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .steps { grid-template-columns: 1fr; }
 
   .demo, .about, .contact { grid-template-columns: 1fr; gap: 56px; }
-  .partner-card { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 32px; padding: 40px 32px; }
-  .partner-copy p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
-  .partner-card::before { -webkit-mask-image: linear-gradient(180deg, #000, transparent 60%); mask-image: linear-gradient(180deg, #000, transparent 60%); }
   .browser, .browser.reveal.in { transform: none; }
   .about-visual { max-width: 460px; }
 
@@ -974,6 +920,11 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .play-link { font-size: 16px; gap: 12px; }
   .play-icon { width: 42px; height: 42px; }
   .play-icon svg { width: 18px; height: 18px; }
+  .hero-sponsor { gap: 9px; padding-left: 14px; }
+  .hero-sponsor img { width: 34px; }
+  .hero-sponsor small { font-size: 8.5px; letter-spacing: .08em; }
+  .hero-sponsor strong { font-size: 14px; }
+  .hide-sm { display: none; }
 
   /* compact 2×2 feature strip */
   .hero-strip { gap: 16px 12px; padding-top: 18px; }
@@ -993,15 +944,16 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .mock-links i { width: 22px; }
 
   .cta-inner .btn { width: 100%; }
-  .partner { padding-top: 56px; }
-  .partner-card { padding: 34px 20px; gap: 26px; }
-  .partner-lockup { gap: 14px; }
-  .lockup-nexa { width: 72px; height: 72px; border-radius: 18px; }
-  .lockup-club { width: 112px; height: 112px; }
-  .lockup-x { font-size: 24px; }
-  .partner-copy p:not(.eyebrow) { font-size: 16px; }
   .contact-form { padding: 24px 18px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 374px) {
+  .hero-actions { column-gap: 12px; }
+  .play-link { font-size: 15px; gap: 10px; }
+  .play-icon { width: 38px; height: 38px; }
+  .hero-sponsor { padding-left: 12px; gap: 8px; }
+  .hero-sponsor img { width: 32px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
