@@ -41,7 +41,8 @@ Photos from [Unsplash](https://unsplash.com):
 
 - Football stadium — Mario Klassen ([photo](https://unsplash.com/photos/70YxSTWa2Zw))
 - Basketball — Markus Spiske ([photo](https://unsplash.com/photos/0It4NhP_9kQ))
-- Volleyball — Daniil Kazorin ([photo](https://unsplash.com/photos/Ks7MelbFadw))
+- Pickleball — Hoi Pham ([photo](https://unsplash.com/photos/79UPJtBsSAg))
+- Handball — Krystof Zajicek ([photo](https://unsplash.com/photos/xu1A9u0P4Fc))
 
 ## Hero slideshow
 

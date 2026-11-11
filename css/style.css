@@ -265,14 +265,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background-size: cover;
   background-position: var(--pos, center);
   opacity: 0;
-  transform: scale(1.1);
-  transition: opacity 1.6s ease;
+  transform: scale(1.08);
+  transition: opacity 1.2s ease;
   will-change: opacity, transform;
 }
 .hero-slide.is-active {
   z-index: 2;
   opacity: 1;
-  animation: slideZoom 9s cubic-bezier(.25, .1, .25, 1) forwards;
+  animation: slideZoom 5.6s cubic-bezier(.25, .1, .25, 1) forwards;
 }
 .hero-slide.is-leaving {
   z-index: 1;
@@ -280,20 +280,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transform: scale(1); /* and stays where its zoom ended */
 }
 @keyframes slideZoom {
-  from { transform: scale(1.1); }
+  from { transform: scale(1.08); }
   to   { transform: scale(1); }
 }
 
 .slide-football   { --pos: 68% 40%; background-image: url("../assets/img/stadium-3200.webp"); }
 .slide-basketball { --pos: 55% 60%; }
-.slide-volleyball { --pos: 58% 78%; }
+.slide-pickleball { --pos: 60% 55%; }
+.slide-handball   { --pos: 50% 72%; }
 @media (max-width: 1400px) {
   .slide-football { background-image: url("../assets/img/stadium-2400.webp"); }
 }
 @media (max-width: 640px) {
   .slide-football { background-image: url("../assets/img/stadium-1600.webp"); --pos: 70% center; }
   .slide-basketball { --pos: 38% center; }
-  .slide-volleyball { --pos: 50% center; }
+  .slide-pickleball { --pos: 58% center; }
+  .slide-handball   { --pos: 42% center; }
 }
 
 /* diagonal neon lines */

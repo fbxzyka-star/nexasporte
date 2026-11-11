@@ -274,8 +274,8 @@
     var slides = Array.prototype.slice.call(document.querySelectorAll(".hero-slide"));
     if (slides.length < 2 || reduceMotion.matches) return;
 
-    var SHOW_MS = 6500;          // time each photo stays before the next fades in
-    var FADE_MS = 1600;          // must match the CSS opacity transition
+    var SHOW_MS = 4000;          // a new photo every 4 seconds
+    var FADE_MS = 1200;          // must match the CSS opacity transition
     var current = 0;
     var timer = null;
     var heroVisible = true;
