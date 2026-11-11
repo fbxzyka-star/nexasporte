@@ -23,7 +23,7 @@
      to the Features section (and back up to the top). Only active when
      the whole hero fits on screen, so nothing in it can be skipped. */
   var hero = document.getElementById("home");
-  var nextSection = document.getElementById("features");
+  var nextSection = hero.nextElementSibling;
   var scrollDown = document.getElementById("scroll-down");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   var animating = false;
