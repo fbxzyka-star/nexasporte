@@ -219,15 +219,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 .hero-bg {
+  --hero-img: url("../assets/img/stadium-3200.webp");
   position: absolute;
   inset: 0;
   z-index: -2;
   background:
     linear-gradient(90deg, rgba(5,7,6,.96) 0%, rgba(5,7,6,.85) 24%, rgba(5,7,6,.35) 48%, rgba(5,7,6,0) 70%, rgba(5,7,6,.1) 100%),
     linear-gradient(180deg, rgba(5,7,6,.75) 0%, rgba(5,7,6,0) 16%, rgba(5,7,6,0) 66%, rgba(5,7,6,.9) 94%, var(--bg) 100%),
-    url("../assets/img/stadium.jpg") 68% 40% / cover no-repeat;
+    var(--hero-img) 68% 40% / cover no-repeat;
   animation: heroZoom 18s ease-out both;
 }
+@media (max-width: 1400px) {
+  .hero-bg { --hero-img: url("../assets/img/stadium-2400.webp"); }
+}
+@media (max-width: 640px) {
+  .hero-bg { --hero-img: url("../assets/img/stadium-1600.webp"); }
+}
+
 @keyframes heroZoom {
   from { transform: scale(1.08); }
   to   { transform: scale(1); }
@@ -482,7 +490,7 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   border-radius: 14px;
   background:
     linear-gradient(120deg, rgba(5,7,6,.92), rgba(5,7,6,.55)),
-    url("../assets/img/stadium-sm.jpg") center / cover;
+    url("../assets/img/stadium-1600.webp") center / cover;
   border: 1px solid var(--border);
 }
 .mock-label {
@@ -604,7 +612,7 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   padding: 90px 0;
   background:
     linear-gradient(90deg, rgba(5,7,6,.96), rgba(5,7,6,.75), rgba(5,7,6,.96)),
-    url("../assets/img/stadium-sm.jpg") center 60% / cover;
+    url("../assets/img/stadium-1600.webp") center 60% / cover;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
@@ -744,7 +752,7 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .hero-bg {
     background:
       linear-gradient(180deg, rgba(5,7,6,.9) 0%, rgba(5,7,6,.7) 40%, rgba(5,7,6,.55) 65%, var(--bg) 100%),
-      url("../assets/img/stadium.jpg") 70% center / cover no-repeat;
+      var(--hero-img) 70% center / cover no-repeat;
   }
   .hero-lines span:nth-child(2), .hero-lines span:nth-child(3) { display: none; }
   .hero-inner { padding-top: 40px; padding-bottom: 32px; gap: 40px; }

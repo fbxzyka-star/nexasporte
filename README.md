@@ -10,7 +10,8 @@ This is the Nexasporte company website: a fast, static, mobile-friendly landing 
 index.html          Main page (Home, Features, Demo, How it works, Pricing, About, Contact)
 css/style.css       All styles (colours are in the :root variables at the top)
 js/main.js          Mobile menu, scroll effects, contact form
-assets/img/         Logo, stadium photo, favicon, social preview image
+assets/img/         Web-ready images (logo, stadium photo in 3 sizes, favicon, social preview)
+assets/source/      Full-resolution originals (not used by the page directly)
 ```
 
 ## Run locally
@@ -33,3 +34,7 @@ Then visit http://localhost:8000
 
 It's a static site, so it works on GitHub Pages, Netlify, Vercel or Cloudflare Pages with no build step.
 For GitHub Pages: *Settings → Pages → Deploy from branch → `main` / root*.
+
+## Credits
+
+Stadium photo by Mario Klassen on [Unsplash](https://unsplash.com/photos/70YxSTWa2Zw).
