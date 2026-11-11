@@ -13,9 +13,134 @@
   /* ---------- Header background on scroll ---------- */
   function onScroll() {
     header.classList.toggle("scrolled", window.scrollY > 20);
+    document.body.classList.toggle("past-hero", window.scrollY > 40);
   }
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  /* ---------- Smooth slide from the hero to the next section ----------
+     A small scroll / swipe / arrow key inside the hero glides the page
+     to the Features section (and back up to the top). Only active when
+     the whole hero fits on screen, so nothing in it can be skipped. */
+  var hero = document.getElementById("home");
+  var nextSection = document.getElementById("features");
+  var scrollDown = document.getElementById("scroll-down");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var animating = false;
+  var locked = false;
+  var lastInput = 0;
+
+  function headerOffset() {
+    return header.offsetHeight - 8;
+  }
+  function nextTop() {
+    return Math.max(0, nextSection.offsetTop - headerOffset());
+  }
+  var heroStrip = hero.querySelector(".hero-strip");
+  function heroFits() {
+    // all hero content (down to the feature strip) is visible on screen
+    return heroStrip.getBoundingClientRect().bottom + window.scrollY <= window.innerHeight + 4;
+  }
+  function menuOpen() {
+    return document.body.classList.contains("nav-open");
+  }
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+  function jumpTo(y) {
+    try { window.scrollTo({ top: y, behavior: "instant" }); }
+    catch (e) { window.scrollTo(0, y); }
+  }
+
+  function glideTo(target) {
+    if (reduceMotion.matches) { jumpTo(target); return; }
+    var start = window.scrollY;
+    var distance = target - start;
+    if (Math.abs(distance) < 2) return;
+    var duration = Math.min(1100, Math.max(650, Math.abs(distance) * 0.9));
+    var t0 = null;
+    animating = locked = true;
+    doc.style.scrollBehavior = "auto";
+
+    function step(now) {
+      if (t0 === null) t0 = now;
+      var p = Math.min(1, (now - t0) / duration);
+      jumpTo(start + distance * easeInOutCubic(p));
+      if (p < 1) {
+        requestAnimationFrame(step);
+      } else {
+        animating = false;
+        doc.style.scrollBehavior = "";
+        releaseLock();
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Keep swallowing trackpad / touch momentum until it has died down,
+  // so the page doesn't keep drifting after the glide.
+  function releaseLock() {
+    if (animating) return;
+    if (performance.now() - lastInput > 220) locked = false;
+    else setTimeout(releaseLock, 120);
+  }
+
+  // Which way (if any) a scroll gesture at the current position should glide.
+  function glideTarget(down) {
+    if (menuOpen() || !heroFits()) return null;
+    var y = window.scrollY;
+    var stop = nextTop();
+    if (down && y < stop - 2) return stop;
+    if (!down && y > 0 && y <= stop + 2) return 0;
+    return null;
+  }
+
+  function handleIntent(down, e) {
+    lastInput = performance.now();
+    if (locked) { if (e.cancelable) e.preventDefault(); return; }
+    var target = glideTarget(down);
+    if (target === null) return;
+    if (e.cancelable) e.preventDefault();
+    glideTo(target);
+  }
+
+  window.addEventListener("wheel", function (e) {
+    if (e.ctrlKey || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return; // pinch-zoom / sideways
+    if (Math.abs(e.deltaY) < 1) return;
+    handleIntent(e.deltaY > 0, e);
+  }, { passive: false });
+
+  var touchY = null;
+  window.addEventListener("touchstart", function (e) {
+    touchY = e.touches.length === 1 ? e.touches[0].clientY : null;
+  }, { passive: true });
+  window.addEventListener("touchmove", function (e) {
+    if (locked) { lastInput = performance.now(); if (e.cancelable) e.preventDefault(); return; }
+    if (touchY === null) return;
+    var dy = touchY - e.touches[0].clientY;
+    if (dy === 0) return;
+    var target = glideTarget(dy > 0);
+    if (target === null) return;             // normal native scrolling
+    if (e.cancelable) e.preventDefault();    // hold the page still until the swipe is clear
+    if (Math.abs(dy) < 8) return;
+    lastInput = performance.now();
+    touchY = null;
+    glideTo(target);
+  }, { passive: false });
+
+  window.addEventListener("keydown", function (e) {
+    var t = e.target;
+    if (t.closest && t.closest("input, textarea, select, button, [contenteditable]")) return;
+    var down = e.key === "ArrowDown" || e.key === "PageDown" || (e.key === " " && !e.shiftKey);
+    var up = e.key === "ArrowUp" || e.key === "PageUp" || (e.key === " " && e.shiftKey);
+    if (!down && !up) return;
+    handleIntent(down, e);
+  });
+
+  scrollDown.addEventListener("click", function (e) {
+    e.preventDefault();
+    glideTo(nextTop());
+  });
 
   /* ---------- Mobile menu ---------- */
   function setMenu(open) {
@@ -140,6 +265,25 @@
   form.addEventListener("input", function (e) {
     if (e.target.classList.contains("invalid")) e.target.classList.remove("invalid");
   });
+
+  /* ---------- Tagline: spread letters evenly to the wordmark width ---------- */
+  var taglines = document.querySelectorAll(".brand-tagline");
+  function fitTaglines() {
+    taglines.forEach(function (el) {
+      var inner = el.firstElementChild;
+      var target = el.parentElement.clientWidth;
+      if (!target) return;
+      el.style.letterSpacing = "0px";
+      var natural = inner.getBoundingClientRect().width;
+      var chars = inner.textContent.length;
+      var ls = Math.max(0, (target - natural) / (chars - 1));
+      el.style.letterSpacing = ls + "px";
+      inner.style.marginRight = -ls + "px"; // no trailing gap after the last letter
+    });
+  }
+  fitTaglines();
+  window.addEventListener("resize", fitTaglines);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTaglines);
 
   /* ---------- Footer year ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
