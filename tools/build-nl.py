@@ -145,7 +145,9 @@ T = [
      '<span><strong>Altijd opzegbaar</strong>Geen contracten, geen verplichtingen. Bij het maandabonnement gaat de site offline wanneer je opzegt, tenzij je hem overkoopt.</span>'),
     ('<span><strong>Your domain belongs to your club</strong>We manage it for you. Want to take it elsewhere? Transfer anytime for €12.</span>',
      '<span><strong>Je domein is van je club</strong>Wij beheren het voor je. Wil je het elders onderbrengen? Overdracht kan altijd voor €12.</span>'),
-    ('<p class="price-note">All prices excl. VAT.</p>', '<p class="price-note">Alle prijzen excl. btw.</p>'),
+    ('<p class="price-note">All prices incl. VAT.</p>', '<p class="price-note">Alle prijzen incl. btw.</p>'),
+    ('<span><strong>See it before you pay</strong>We build a free demo of your website first and shape it to your wishes. You only pay when you’re happy with it.</span>',
+     '<span><strong>Eerst zien, dan betalen</strong>We maken eerst een gratis demo van je website en passen die aan jouw wensen aan. Je betaalt pas als je tevreden bent.</span>'),
     ('<option>Direct Buy</option>', '<option value="Direct Buy">Eenmalige aankoop</option>'),
     ('<option>Monthly Plan</option>', '<option value="Monthly Plan">Maandabonnement</option>'),
 
