@@ -611,6 +611,7 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
 
 /* checklist */
 .checklist { display: grid; gap: 12px; margin: 28px 0 34px; }
+.checklist li strong { color: var(--text); font-weight: 600; }
 .checklist li {
   position: relative;
   padding-left: 32px;
@@ -829,8 +830,6 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
 .trust-row li { display: flex; gap: 14px; align-items: flex-start; padding: 6px 4px; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .trust-row .ico { width: 26px; height: 26px; margin-top: 2px; }
 .trust-row strong { display: block; color: var(--text); font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-.li-more { color: var(--dim); font-size: .88em; text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
-.li-more:hover { color: var(--green); }
 .price-note { margin-top: 18px; text-align: center; color: var(--dim); font-size: 13px; }
 .plan-desc { color: var(--muted); }
 .price {
