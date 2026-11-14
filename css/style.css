@@ -771,6 +771,19 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
 .plan .btn-block { margin-top: auto; }
 .price-then { margin-top: 10px; color: var(--muted); font-size: 15px; line-height: 1.5; }
 .price-then strong { color: var(--text); font-weight: 600; }
+.free-badge {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--green);
+  color: #031105;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
 .plan-extra {
   margin: -14px 0 24px;
   padding: 12px 14px;
