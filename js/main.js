@@ -6,6 +6,20 @@
   var CONTACT_EMAIL = "info@nexasporte.com";
 
   var doc = document.documentElement;
+  var NL = (doc.lang || "").toLowerCase().indexOf("nl") === 0;
+  var TXT = NL ? {
+    openMenu: "Menu openen", closeMenu: "Menu sluiten",
+    invalid: "Vul je naam, club en een geldig e-mailadres in.",
+    sending: "Je e-mailprogramma wordt geopend… Bedankt!",
+    subject: "Nieuwe aanvraag clubwebsite — ",
+    name: "Naam", club: "Club / academie", email: "E-mail", phone: "Telefoon", sport: "Sport", plan: "Pakket"
+  } : {
+    openMenu: "Open menu", closeMenu: "Close menu",
+    invalid: "Please fill in your name, club and a valid email.",
+    sending: "Opening your email app… Thank you!",
+    subject: "New club website request — ",
+    name: "Name", club: "Club / Academy", email: "Email", phone: "Phone", sport: "Sport", plan: "Plan"
+  };
   var header = document.querySelector(".site-header");
   var toggle = document.getElementById("nav-toggle");
   var navLinks = document.getElementById("nav-links");
@@ -146,7 +160,7 @@
   function setMenu(open) {
     document.body.classList.toggle("nav-open", open);
     toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    toggle.setAttribute("aria-label", open ? TXT.closeMenu : TXT.openMenu);
   }
   toggle.addEventListener("click", function () {
     setMenu(!document.body.classList.contains("nav-open"));
@@ -235,21 +249,21 @@
     });
 
     if (invalid.length) {
-      note.textContent = "Please fill in your name, club and a valid email.";
+      note.textContent = TXT.invalid;
       note.classList.add("error");
       invalid[0].focus();
       return;
     }
 
     var d = new FormData(form);
-    var subject = "New club website request — " + d.get("club");
+    var subject = TXT.subject + d.get("club");
     var body = [
-      "Name: " + d.get("name"),
-      "Club / Academy: " + d.get("club"),
-      "Email: " + d.get("email"),
-      "Phone: " + (d.get("phone") || "-"),
-      "Sport: " + d.get("sport"),
-      "Plan: " + d.get("plan"),
+      TXT.name + ": " + d.get("name"),
+      TXT.club + ": " + d.get("club"),
+      TXT.email + ": " + d.get("email"),
+      TXT.phone + ": " + (d.get("phone") || "-"),
+      TXT.sport + ": " + d.get("sport"),
+      TXT.plan + ": " + d.get("plan"),
       "",
       d.get("message") || ""
     ].join("\n");
@@ -259,7 +273,7 @@
       "&body=" + encodeURIComponent(body);
 
     note.classList.remove("error");
-    note.textContent = "Opening your email app… Thank you!";
+    note.textContent = TXT.sending;
   });
 
   form.addEventListener("input", function (e) {
