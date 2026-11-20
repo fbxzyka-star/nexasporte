@@ -25,8 +25,1400 @@
 <body>
 
   <!-- ===================================================
-       ΒΑΛΕ ΤΟΝ ΚΩΔΙΚΑ ΤΗΣ ΟΜΑΔΑΣ ΕΔΩ
-       (μπορείς να αντικαταστήσεις όλο το αρχείο)
+     <!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ΓΕΛ ΔΙΟΝΥΣΟΥ — Ομάδα Βόλεϊ | Επίσημη Ιστοσελίδα</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts with full Greek character support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Sports & UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dionysos: {
+                            black: '#060B14',
+                            navy: '#0A1628',
+                            blue: '#0D2149',
+                            royal: '#163570',
+                            gold: '#F5B800',
+                            goldLight: '#FFD13B',
+                            goldDark: '#C49000',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dionysos-black text-white font-sans antialiased overflow-x-hidden selection:bg-dionysos-gold selection:text-dionysos-black">
+
+    <!-- ==================== SVG DEFINITIONS (REUSABLE EMBLEM & PATTERNS) ==================== -->
+    <svg class="hidden" aria-hidden="true">
+        <defs>
+            <!-- Custom Emblem SVG matching ΓΕΛ ΔΙΟΝΥΣΟΥ crest -->
+            <g id="gel-dionysou-emblem">
+                <!-- Outer Gold & Black Rings -->
+                <circle cx="100" cy="100" r="97" fill="#060B14" stroke="#F5B800" stroke-width="3.5"/>
+                <circle cx="100" cy="100" r="90" fill="#0A1628" stroke="#FFD13B" stroke-width="1.5"/>
+                <circle cx="100" cy="100" r="65" fill="#0D2149" stroke="#F5B800" stroke-width="2"/>
+                
+                <!-- Subtle Sunburst / Rays inside inner circle -->
+                <path d="M100 35 L108 100 L92 100 Z M100 165 L108 100 L92 100 Z M35 100 L100 92 L100 108 Z M165 100 L100 92 L100 108 Z" fill="#163570" opacity="0.7"/>
+                <path d="M54 54 L105 95 L95 105 Z M146 146 L105 95 L95 105 Z M146 54 L95 95 L105 105 Z M54 146 L95 95 L105 105 Z" fill="#163570" opacity="0.5"/>
+
+                <!-- Curved Top Text Path -->
+                <path id="topArc" d="M 26,100 A 74,74 0 1,1 174,100" fill="none"/>
+                <text fill="#FFFFFF" font-family="Montserrat, sans-serif" font-weight="900" font-size="14.5" letter-spacing="2.2">
+                    <textPath href="#topArc" startOffset="50%" text-anchor="middle">ΓΕΛ ΔΙΟΝΥΣΟΥ</textPath>
+                </text>
+
+                <!-- Left & Right Gold Stars -->
+                <polygon points="24,100 26.5,105 32,105.5 27.8,109 29,114.5 24,111.5 19,114.5 20.2,109 16,105.5 21.5,105" fill="#FFD13B"/>
+                <polygon points="176,100 178.5,105 184,105.5 179.8,109 181,114.5 176,111.5 171,114.5 172.2,109 168,105.5 173.5,105" fill="#FFD13B"/>
+
+                <!-- Classical Ionic Columns (Left & Right) -->
+                <g fill="#E2E8F0" stroke="#060B14" stroke-width="0.8">
+                    <!-- Left Column -->
+                    <rect x="52" y="84" width="14" height="36" rx="1"/>
+                    <line x1="55" y1="84" x2="55" y2="120" stroke="#0A1628" stroke-width="1"/>
+                    <line x1="59" y1="84" x2="59" y2="120" stroke="#0A1628" stroke-width="1"/>
+                    <line x1="63" y1="84" x2="63" y2="120" stroke="#0A1628" stroke-width="1"/>
+                    <rect x="49" y="80" width="20" height="4" rx="2" fill="#FFD13B"/>
+                    <circle cx="50" cy="83" r="2.5" fill="#FFFFFF"/>
+                    <circle cx="68" cy="83" r="2.5" fill="#FFFFFF"/>
+                    <!-- Right Column -->
+                    <rect x="134" y="84" width="14" height="36" rx="1"/>
+                    <line x1="137" y1="84" x2="137" y2="120" stroke="#0A1628" stroke-width="1"/>
+                    <line x1="141" y1="84" x2="141" y2="120" stroke="#0A1628" stroke-width="1"/>
+                    <line x1="145" y1="84" x2="145" y2="120" stroke="#0A1628" stroke-width="1"/>
+                    <rect x="131" y="80" width="20" height="4" rx="2" fill="#FFD13B"/>
+                    <circle cx="132" cy="83" r="2.5" fill="#FFFFFF"/>
+                    <circle cx="150" cy="83" r="2.5" fill="#FFFFFF"/>
+                </g>
+
+                <!-- Stylized Classical Bust Silhouette & Golden Laurel Crown -->
+                <g>
+                    <!-- Shoulders / Chiton -->
+                    <path d="M68 134 C72 118, 85 113, 100 113 C115 113, 128 118, 132 134 Z" fill="#F8FAFC" stroke="#060B14" stroke-width="1.5"/>
+                    <path d="M84 115 L98 133 M116 115 L104 133" stroke="#94A3B8" stroke-width="1.5"/>
+                    <!-- Neck & Classical Head Profile -->
+                    <path d="M93 115 L93 102 L107 102 L107 115 Z" fill="#E2E8F0"/>
+                    <path d="M87 82 C87 67, 113 67, 113 83 C113 94, 108 103, 100 104 C92 103, 87 94, 87 82 Z" fill="#FFFFFF" stroke="#060B14" stroke-width="1.2"/>
+                    <!-- Golden Grapevine / Laurel Crown on Head -->
+                    <path d="M82 81 C80 65, 92 56, 100 56 C108 56, 120 65, 118 81 C113 73, 107 69, 100 69 C93 69, 87 73, 82 81 Z" fill="#F5B800" stroke="#060B14" stroke-width="1"/>
+                    <circle cx="84" cy="84" r="3.5" fill="#FFD13B" stroke="#060B14" stroke-width="0.8"/>
+                    <circle cx="81" cy="89" r="3" fill="#F5B800" stroke="#060B14" stroke-width="0.8"/>
+                    <circle cx="116" cy="84" r="3.5" fill="#FFD13B" stroke="#060B14" stroke-width="0.8"/>
+                    <circle cx="119" cy="89" r="3" fill="#F5B800" stroke="#060B14" stroke-width="0.8"/>
+                </g>
+
+                <!-- Golden Laurel Wreath Framing Bottom -->
+                <g fill="#F5B800" stroke="#060B14" stroke-width="0.8">
+                    <!-- Left Branch -->
+                    <path d="M36 112 C42 142, 65 162, 92 167" fill="none" stroke="#FFD13B" stroke-width="2.5"/>
+                    <ellipse cx="38" cy="118" rx="4" ry="8" transform="rotate(-35 38 118)"/>
+                    <ellipse cx="44" cy="130" rx="4.5" ry="9" transform="rotate(-45 44 130)"/>
+                    <ellipse cx="53" cy="142" rx="4.5" ry="9" transform="rotate(-55 53 142)"/>
+                    <ellipse cx="65" cy="153" rx="4.5" ry="9" transform="rotate(-65 65 153)"/>
+                    <ellipse cx="79" cy="161" rx="4" ry="8.5" transform="rotate(-75 79 161)"/>
+                    <!-- Right Branch -->
+                    <path d="M164 112 C158 142, 135 162, 108 167" fill="none" stroke="#FFD13B" stroke-width="2.5"/>
+                    <ellipse cx="162" cy="118" rx="4" ry="8" transform="rotate(35 162 118)"/>
+                    <ellipse cx="156" cy="130" rx="4.5" ry="9" transform="rotate(45 156 130)"/>
+                    <ellipse cx="147" cy="142" rx="4.5" ry="9" transform="rotate(55 147 142)"/>
+                    <ellipse cx="135" cy="153" rx="4.5" ry="9" transform="rotate(65 135 153)"/>
+                    <ellipse cx="121" cy="161" rx="4" ry="8.5" transform="rotate(75 121 161)"/>
+                </g>
+
+                <!-- Blue & Gold Volleyball at Bottom Center -->
+                <g transform="translate(100, 148)">
+                    <circle cx="0" cy="0" r="23" fill="#FFFFFF" stroke="#060B14" stroke-width="2.5"/>
+                    <!-- Blue & Gold Panels -->
+                    <path d="M-21 -8 C-8 -14, 8 -14, 21 -8 C17 -19, 8 -23, 0 -23 C-8 -23, -17 -19, -21 -8 Z" fill="#163570" stroke="#060B14" stroke-width="1.5"/>
+                    <path d="M-22 4 C-10 -2, 2 -2, 8 10 C-2 16, -15 14, -22 4 Z" fill="#F5B800" stroke="#060B14" stroke-width="1.5"/>
+                    <path d="M22 4 C12 -2, 4 2, 2 14 C11 18, 19 13, 22 4 Z" fill="#163570" stroke="#060B14" stroke-width="1.5"/>
+                    <path d="M-14 17 C-4 12, 6 13, 14 17 C7 22, -7 22, -14 17 Z" fill="#FFD13B" stroke="#060B14" stroke-width="1.5"/>
+                    <circle cx="0" cy="0" r="23" fill="none" stroke="#060B14" stroke-width="2.2"/>
+                </g>
+            </g>
+
+            <!-- Decorative Greek Meander Border Pattern -->
+            <pattern id="meander-pattern" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+                <path d="M0 18 H16 V4 H6 V12 H12 V8 H10 M20 2 H36 V16 H26 V8 H32 V12 H30" fill="none" stroke="#F5B800" stroke-width="1.5" opacity="0.35"/>
+            </pattern>
+        </defs>
+    </svg>
+
+    <!-- ==================== 1. STICKY NAVIGATION BAR ==================== -->
+    <header id="navbar" class="sticky top-0 z-50 bg-dionysos-black/95 backdrop-blur-md border-b border-dionysos-gold/25 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand -->
+                <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg shadow-dionysos-gold/20 group-hover:scale-105 transition-transform duration-300">
+                        <svg viewBox="0 0 200 200" class="w-full h-full">
+                            <use href="#gel-dionysou-emblem"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-black text-lg sm:text-xl tracking-wider text-white group-hover:text-dionysos-goldLight transition-colors">
+                            ΓΕΛ ΔΙΟΝΥΣΟΥ
+                        </span>
+                        <span class="text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-dionysos-gold">
+                            Ομάδα Βόλεϊ • Est. Λύκειο Διονύσου
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-bold tracking-wide">
+                    <a href="#home" class="text-white hover:text-dionysos-gold transition-colors py-2">Αρχική</a>
+                    <a href="#team" class="text-slate-300 hover:text-dionysos-gold transition-colors py-2">Η Ομάδα</a>
+                    <a href="#matches" class="text-slate-300 hover:text-dionysos-gold transition-colors py-2">Πρόγραμμα & Αποτελέσματα</a>
+                    <a href="#news" class="text-slate-300 hover:text-dionysos-gold transition-colors py-2">Νέα</a>
+                    <a href="#contact" class="text-slate-300 hover:text-dionysos-gold transition-colors py-2">Επικοινωνία</a>
+                </nav>
+
+                <!-- CTA Button & Mobile Menu Toggle -->
+                <div class="flex items-center gap-3">
+                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-dionysos-gold to-dionysos-goldLight hover:from-dionysos-goldLight hover:to-white text-dionysos-black font-display font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md shadow-dionysos-gold/25 hover:shadow-dionysos-gold/40 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-volleyball"></i>
+                        <span>Εγγραφές / Δοκιμαστικά</span>
+                    </a>
+
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobile-menu-btn" aria-label="Άνοιγμα μενού" class="lg:hidden p-2.5 rounded-xl bg-dionysos-navy border border-dionysos-gold/30 text-dionysos-gold hover:bg-dionysos-blue focus:outline-none">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-dionysos-navy border-t border-dionysos-gold/20 px-4 pt-3 pb-6 space-y-2 shadow-2xl">
+            <a href="#home" class="mobile-nav-link block px-4 py-3 rounded-xl font-bold text-white hover:bg-dionysos-blue hover:text-dionysos-gold transition-colors">Αρχική</a>
+            <a href="#team" class="mobile-nav-link block px-4 py-3 rounded-xl font-bold text-slate-200 hover:bg-dionysos-blue hover:text-dionysos-gold transition-colors">Η Ομάδα</a>
+            <a href="#matches" class="mobile-nav-link block px-4 py-3 rounded-xl font-bold text-slate-200 hover:bg-dionysos-blue hover:text-dionysos-gold transition-colors">Πρόγραμμα & Αποτελέσματα</a>
+            <a href="#news" class="mobile-nav-link block px-4 py-3 rounded-xl font-bold text-slate-200 hover:bg-dionysos-blue hover:text-dionysos-gold transition-colors">Νέα</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl font-bold text-slate-200 hover:bg-dionysos-blue hover:text-dionysos-gold transition-colors">Επικοινωνία</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-nav-link flex items-center justify-center gap-2 w-full bg-gradient-to-r from-dionysos-gold to-dionysos-goldLight text-dionysos-black font-display font-extrabold text-sm px-5 py-3.5 rounded-xl shadow-lg">
+                    <i class="fa-solid fa-volleyball"></i>
+                    <span>Εγγραφές / Δοκιμαστικά</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section id="home" class="relative bg-gradient-to-br from-dionysos-black via-dionysos-navy to-dionysos-blue pt-10 pb-16 sm:pt-16 sm:pb-24 overflow-hidden">
+        <!-- Decorative Classical & Volleyball Background Elements -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <!-- Subtle Radial Glow -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-dionysos-gold/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-dionysos-royal/30 rounded-full blur-3xl"></div>
+            <!-- Volleyball Court Lines Watermark -->
+            <svg class="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-5 text-dionysos-gold" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="100" cy="100" r="90"/>
+                <path d="M15 70 Q100 30 185 70 M15 130 Q100 170 185 130 M70 15 Q30 100 70 185 M130 15 Q170 100 130 185"/>
+            </svg>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                
+                <!-- Left Column: Emblem, Title, Subtitle & CTAs -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <!-- Season Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-dionysos-blue/90 border border-dionysos-gold/40 shadow-md">
+                        <span class="w-2 h-2 rounded-full bg-dionysos-gold animate-pulse"></span>
+                        <span class="text-xs sm:text-sm font-display font-bold tracking-wider uppercase text-dionysos-goldLight">
+                            Σχολική Χρονιά 2026-2027 • Πρωτάθλημα Λυκείων
+                        </span>
+                    </div>
+
+                    <!-- Main Title -->
+                    <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight text-white">
+                        ΓΕΛ ΔΙΟΝΥΣΟΥ <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-dionysos-gold via-dionysos-goldLight to-amber-200">
+                            ΟΜΑΔΑ ΒΟΛΕΪ
+                        </span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Με πάθος, ομαδικότητα και έμπνευση από την κλασική κληρονομιά του Διονύσου, εκπροσωπούμε το <strong>Γενικό Λύκειο Διονύσου</strong> στο Πανελλήνιο Σχολικό Πρωτάθλημα Πετοσφαίρισης Αγοριών & Κοριτσιών.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#matches" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-dionysos-gold to-dionysos-goldLight hover:from-dionysos-goldLight hover:to-white text-dionysos-black font-display font-extrabold text-sm sm:text-base px-7 py-4 rounded-2xl shadow-xl shadow-dionysos-gold/20 transition-all transform hover:-translate-y-0.5">
+                            <i class="fa-regular fa-calendar-check text-lg"></i>
+                            <span>Δες το Πρόγραμμα</span>
+                        </a>
+                        <a href="#team" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-dionysos-blue/80 hover:bg-dionysos-royal text-white border border-dionysos-gold/40 font-display font-bold text-sm sm:text-base px-7 py-4 rounded-2xl transition-all transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-users text-dionysos-gold"></i>
+                            <span>Γνώρισε το Ρόστερ</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Team Highlights -->
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="font-display font-black text-2xl sm:text-3xl text-dionysos-gold">2</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-medium">Τμήματα (Αγόρια & Κορίτσια)</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-black text-2xl sm:text-3xl text-dionysos-gold">24</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-medium">Μαθητές - Αθλητές</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-black text-2xl sm:text-3xl text-dionysos-gold">1η</div>
+                            <div class="text-xs sm:text-sm text-slate-400 font-medium">Θέση στον Όμιλο</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Large Crest Showcase & Dynamic Next Match Card -->
+                <div class="lg:col-span-5 flex flex-col items-center space-y-6">
+                    <!-- Custom Emblem Showcase -->
+                    <div class="relative w-48 h-48 sm:w-56 sm:h-56 drop-shadow-[0_15px_35px_rgba(245,184,0,0.3)] hover:scale-105 transition-transform duration-500">
+                        <svg viewBox="0 0 200 200" class="w-full h-full">
+                            <use href="#gel-dionysou-emblem"/>
+                        </svg>
+                    </div>
+
+                    <!-- Next Match Card -->
+                    <div class="w-full max-w-md bg-dionysos-navy/95 backdrop-blur-md border border-dionysos-gold/40 rounded-3xl p-5 sm:p-6 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-dionysos-gold via-dionysos-goldLight to-dionysos-gold"></div>
+                        
+                        <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dionysos-gold mb-4">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-bolt"></i> Επόμενος Αγώνας
+                            </span>
+                            <span class="bg-dionysos-blue px-2.5 py-1 rounded-full text-white border border-dionysos-gold/20">
+                                Α' Φάση Ανατ. Αττικής
+                            </span>
+                        </div>
+
+                        <!-- Teams Matchup -->
+                        <div class="flex items-center justify-between gap-2 my-3">
+                            <!-- Home Team -->
+                            <div class="flex-1 flex flex-col items-center text-center">
+                                <div class="w-14 h-14 rounded-full mb-2 shadow-md">
+                                    <svg viewBox="0 0 200 200" class="w-full h-full">
+                                        <use href="#gel-dionysou-emblem"/>
+                                    </svg>
+                                </div>
+                                <span class="font-display font-extrabold text-sm sm:text-base text-white">ΓΕΛ ΔΙΟΝΥΣΟΥ</span>
+                                <span class="text-[11px] text-dionysos-gold font-semibold">Γηπεδούχος</span>
+                            </div>
+
+                            <!-- VS Divider -->
+                            <div class="flex flex-col items-center px-2">
+                                <span class="font-display font-black text-xl sm:text-2xl text-dionysos-gold bg-dionysos-black/80 px-3.5 py-1.5 rounded-xl border border-dionysos-gold/30">
+                                    VS
+                                </span>
+                                <span id="match-countdown" class="text-[11px] font-bold text-emerald-400 mt-1.5">
+                                    Σε 5 ημέρες
+                                </span>
+                            </div>
+
+                            <!-- Away Team -->
+                            <div class="flex-1 flex flex-col items-center text-center">
+                                <div class="w-14 h-14 rounded-full bg-slate-800 border-2 border-slate-600 flex items-center justify-center mb-2 shadow-md">
+                                    <i class="fa-solid fa-shield-halved text-2xl text-slate-300"></i>
+                                </div>
+                                <span class="font-display font-extrabold text-sm sm:text-base text-slate-200">ΓΕΛ ΑΝΟΙΞΗΣ</span>
+                                <span class="text-[11px] text-slate-400 font-semibold">Φιλοξενούμενος</span>
+                            </div>
+                        </div>
+
+                        <!-- Match Metadata -->
+                        <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-regular fa-calendar text-dionysos-gold"></i> Τετάρτη 25 Νοε 2026 • 11:30
+                            </span>
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-location-dot text-dionysos-gold"></i> Κλειστό Διονύσου
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Classical Meander Divider -->
+        <div class="absolute bottom-0 inset-x-0 h-5">
+            <svg class="w-full h-full" preserveAspectRatio="none">
+                <rect width="100%" height="100%" fill="url(#meander-pattern)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== 3. Η ΟΜΑΔΑ / ΡΟΣΤΕΡ (INTERACTIVE) ==================== -->
+    <section id="team" class="py-16 sm:py-24 bg-dionysos-navy relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block text-xs font-display font-extrabold uppercase tracking-widest text-dionysos-gold mb-2">
+                    <i class="fa-solid fa-laurel-wreath mr-1"></i> Οι Αθλητές Μας
+                </span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-white mb-4">
+                    Η Ομάδα & Το Ρόστερ 2026-2027
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-dionysos-gold to-transparent mx-auto mb-4"></div>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Γνωρίστε τους μαθητές και τις μαθήτριες του Γενικού Λυκείου Διονύσου που αγωνίζονται με περηφάνια για τη σχολική μας φανέλα. Φιλτράρετε ανά τμήμα ή θέση στο γήπεδο.
+                </p>
+            </div>
+
+            <!-- Interactive Filters Container -->
+            <div class="bg-dionysos-black/70 border border-dionysos-gold/25 rounded-3xl p-4 sm:p-6 mb-10 space-y-4">
+                <!-- Category Filter (Όλοι / Αγόρια / Κορίτσια) -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
+                    <span class="text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold">
+                        Κατηγορία Τμήματος:
+                    </span>
+                    <div id="category-filters" class="flex flex-wrap gap-2">
+                        <button data-category="all" class="cat-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-dionysos-gold text-dionysos-black shadow-md transition-all">
+                            Όλοι (16)
+                        </button>
+                        <button data-category="boys" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-dionysos-blue text-slate-200 hover:bg-dionysos-royal border border-white/10 transition-all">
+                            <i class="fa-solid fa-mars mr-1 text-dionysos-gold"></i> Ομάδα Αγοριών (8)
+                        </button>
+                        <button data-category="girls" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-dionysos-blue text-slate-200 hover:bg-dionysos-royal border border-white/10 transition-all">
+                            <i class="fa-solid fa-venus mr-1 text-dionysos-gold"></i> Ομάδα Κοριτσιών (8)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Position Filter (Όλες / Πασαδόρος / Ακραίος / Κεντρικός / Διαγώνιος / Λίμπερο) -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <span class="text-xs font-display font-bold uppercase tracking-wider text-slate-400">
+                        Θέση στο Γήπεδο:
+                    </span>
+                    <div id="position-filters" class="flex flex-wrap gap-2">
+                        <button data-position="all" class="pos-btn active px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-dionysos-black transition-all">
+                            Όλες οι Θέσεις
+                        </button>
+                        <button data-position="Πασαδόρος" class="pos-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-dionysos-navy text-slate-300 hover:text-white border border-white/10 transition-all">
+                            Πασαδόρος
+                        </button>
+                        <button data-position="Ακραίος" class="pos-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-dionysos-navy text-slate-300 hover:text-white border border-white/10 transition-all">
+                            Ακραίος
+                        </button>
+                        <button data-position="Κεντρικός" class="pos-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-dionysos-navy text-slate-300 hover:text-white border border-white/10 transition-all">
+                            Κεντρικός
+                        </button>
+                        <button data-position="Διαγώνιος" class="pos-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-dionysos-navy text-slate-300 hover:text-white border border-white/10 transition-all">
+                            Διαγώνιος
+                        </button>
+                        <button data-position="Λίμπερο" class="pos-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-dionysos-navy text-slate-300 hover:text-white border border-white/10 transition-all">
+                            Λίμπερο
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Players Grid (Populated via JS) -->
+            <div id="roster-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+                <!-- Player cards will be dynamically rendered here -->
+            </div>
+
+            <!-- Empty State Message if no players match -->
+            <div id="roster-empty" class="hidden text-center py-12 bg-dionysos-black/40 rounded-3xl border border-white/10 mb-14">
+                <i class="fa-solid fa-volleyball text-4xl text-dionysos-gold/50 mb-3"></i>
+                <p class="text-slate-300 font-semibold">Δεν βρέθηκαν αθλητές με τα επιλεγμένα φίλτρα.</p>
+                <button id="reset-filters-btn" class="mt-3 text-xs font-bold text-dionysos-gold underline hover:text-white">
+                    Επαναφορά φίλτρων
+                </button>
+            </div>
+
+            <!-- Coaching & Physical Education Staff Banner -->
+            <div class="bg-gradient-to-r from-dionysos-black via-dionysos-blue to-dionysos-black border border-dionysos-gold/40 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-5">
+                        <div class="w-20 h-20 rounded-2xl bg-dionysos-gold/15 border-2 border-dionysos-gold flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-whistle text-3xl text-dionysos-gold"></i>
+                        </div>
+                        <div>
+                            <span class="inline-block text-xs font-display font-extrabold uppercase tracking-wider text-dionysos-gold mb-1">
+                                Τεχνική Ηγεσία & Φυσική Αγωγή
+                            </span>
+                            <h3 class="font-display font-black text-xl sm:text-2xl text-white">
+                                Δημήτρης Παπαδόπουλος & Ελένη Κωνσταντίνου
+                            </h3>
+                            <p class="text-slate-300 text-sm mt-1 max-w-2xl">
+                                Καθηγητές Φυσικής Αγωγής (ΠΕ11) του ΓΕΛ Διονύσου. Υπεύθυνοι προετοιμασίας, τακτικής καθοδήγησης και ανάπτυξης του αθλητικού ιδεώδους «Ευ Αγωνίζεσθαι» στους μαθητές μας.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 shrink-0">
+                        <div class="bg-dionysos-black/70 border border-white/10 px-4 py-3 rounded-2xl text-center">
+                            <div class="text-xs text-slate-400">Προπονήσεις</div>
+                            <div class="font-display font-bold text-sm text-dionysos-goldLight">Τρ & Πέμ 14:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== 4. ΠΡΟΓΡΑΜΜΑ ΑΓΩΝΩΝ & ΑΠΟΤΕΛΕΣΜΑΤΑ ==================== -->
+    <section id="matches" class="py-16 sm:py-24 bg-dionysos-black relative border-t border-dionysos-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block text-xs font-display font-extrabold uppercase tracking-widest text-dionysos-gold mb-2">
+                    <i class="fa-solid fa-trophy mr-1"></i> Σχολικό Πρωτάθλημα Λυκείων
+                </span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-white mb-4">
+                    Πρόγραμμα, Αποτελέσματα & Βαθμολογία
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-dionysos-gold to-transparent mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Column (7 cols): Interactive Tabs for Upcoming Matches & Past Results -->
+                <div class="lg:col-span-7 bg-dionysos-navy border border-dionysos-gold/25 rounded-3xl p-5 sm:p-7 shadow-xl">
+                    <!-- Tabs Header -->
+                    <div class="flex items-center gap-2 p-1.5 bg-dionysos-black rounded-2xl border border-white/10 mb-6">
+                        <button id="tab-upcoming" class="match-tab flex-1 py-3 px-4 rounded-xl font-display font-extrabold text-xs sm:text-sm bg-dionysos-gold text-dionysos-black shadow transition-all">
+                            <i class="fa-regular fa-calendar-days mr-1.5"></i> Επερχόμενοι Αγώνες
+                        </button>
+                        <button id="tab-results" class="match-tab flex-1 py-3 px-4 rounded-xl font-display font-extrabold text-xs sm:text-sm text-slate-300 hover:text-white transition-all">
+                            <i class="fa-solid fa-list-check mr-1.5"></i> Αποτελέσματα
+                        </button>
+                    </div>
+
+                    <!-- Tab Content: Upcoming Matches -->
+                    <div id="content-upcoming" class="space-y-4">
+                        <!-- Match Item 1 -->
+                        <div class="bg-dionysos-black/70 hover:bg-dionysos-blue/40 border border-dionysos-gold/30 rounded-2xl p-4 sm:p-5 transition-colors">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-dionysos-gold font-bold mb-3">
+                                <span><i class="fa-solid fa-mars mr-1"></i> Ομάδα Αγοριών • 3η Αγωνιστική</span>
+                                <span class="bg-dionysos-blue text-white px-2.5 py-0.5 rounded-full">25 Νοε 2026 • 11:30</span>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="font-display font-extrabold text-sm sm:text-base text-white flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-dionysos-gold"></span>
+                                    ΓΕΛ Διονύσου
+                                </div>
+                                <span class="text-xs font-black px-2.5 py-1 rounded bg-dionysos-navy text-dionysos-gold border border-dionysos-gold/20">VS</span>
+                                <div class="font-display font-bold text-sm sm:text-base text-slate-300 text-right">
+                                    ΓΕΛ Άνοιξης
+                                </div>
+                            </div>
+                            <div class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-location-dot text-dionysos-gold mr-1"></i> Κλειστό Γυμναστήριο Διονύσου</span>
+                                <span class="text-emerald-400 font-semibold">Εντός Έδρας</span>
+                            </div>
+                        </div>
+
+                        <!-- Match Item 2 -->
+                        <div class="bg-dionysos-black/70 hover:bg-dionysos-blue/40 border border-white/10 rounded-2xl p-4 sm:p-5 transition-colors">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-dionysos-goldLight font-bold mb-3">
+                                <span><i class="fa-solid fa-venus mr-1"></i> Ομάδα Κοριτσιών • 3η Αγωνιστική</span>
+                                <span class="bg-dionysos-blue text-white px-2.5 py-0.5 rounded-full">27 Νοε 2026 • 12:00</span>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="font-display font-bold text-sm sm:text-base text-slate-300">
+                                    1ο ΓΕΛ Κηφισιάς
+                                </div>
+                                <span class="text-xs font-black px-2.5 py-1 rounded bg-dionysos-navy text-dionysos-gold border border-dionysos-gold/20">VS</span>
+                                <div class="font-display font-extrabold text-sm sm:text-base text-white flex items-center gap-2">
+                                    ΓΕΛ Διονύσου
+                                    <span class="w-2.5 h-2.5 rounded-full bg-dionysos-gold"></span>
+                                </div>
+                            </div>
+                            <div class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-location-dot text-dionysos-gold mr-1"></i> Δημοτικό Κλειστό «Δ. Βικέλας»</span>
+                                <span class="text-amber-300 font-semibold">Εκτός Έδρας</span>
+                            </div>
+                        </div>
+
+                        <!-- Match Item 3 -->
+                        <div class="bg-dionysos-black/70 hover:bg-dionysos-blue/40 border border-white/10 rounded-2xl p-4 sm:p-5 transition-colors">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-dionysos-gold font-bold mb-3">
+                                <span><i class="fa-solid fa-mars mr-1"></i> Ομάδα Αγοριών • 4η Αγωνιστική</span>
+                                <span class="bg-dionysos-blue text-white px-2.5 py-0.5 rounded-full">04 Δεκ 2026 • 11:00</span>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="font-display font-extrabold text-sm sm:text-base text-white flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-dionysos-gold"></span>
+                                    ΓΕΛ Διονύσου
+                                </div>
+                                <span class="text-xs font-black px-2.5 py-1 rounded bg-dionysos-navy text-dionysos-gold border border-dionysos-gold/20">VS</span>
+                                <div class="font-display font-bold text-sm sm:text-base text-slate-300 text-right">
+                                    ΓΕΛ Δροσιάς
+                                </div>
+                            </div>
+                            <div class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-location-dot text-dionysos-gold mr-1"></i> Κλειστό Γυμναστήριο Διονύσου</span>
+                                <span class="text-emerald-400 font-semibold">Τοπικό Ντέρμπι</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Past Results (Hidden by default) -->
+                    <div id="content-results" class="hidden space-y-4">
+                        <!-- Result 1 -->
+                        <div class="bg-dionysos-black/80 border border-emerald-500/30 rounded-2xl p-4 sm:p-5">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-xs mb-3">
+                                <span class="text-emerald-400 font-extrabold uppercase tracking-wider">
+                                    <i class="fa-solid fa-circle-check mr-1"></i> Νίκη • Ομάδα Αγοριών
+                                </span>
+                                <span class="text-slate-400">13 Νοε 2026 • 2η Αγωνιστική</span>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="font-display font-extrabold text-sm sm:text-base text-white">ΓΕΛ Διονύσου</div>
+                                <div class="flex items-center gap-2 bg-dionysos-blue px-3.5 py-1.5 rounded-xl border border-dionysos-gold/40">
+                                    <span class="font-display font-black text-lg text-dionysos-gold">2</span>
+                                    <span class="text-slate-400 font-bold">-</span>
+                                    <span class="font-display font-black text-lg text-slate-300">0</span>
+                                </div>
+                                <div class="font-display font-bold text-sm sm:text-base text-slate-400">ΓΕΛ Εκάλης</div>
+                            </div>
+                            <div class="mt-2.5 text-center text-xs text-slate-400">
+                                Σετ: <span class="text-white font-semibold">(25-18, 25-21)</span> • Κλειστό Διονύσου
+                            </div>
+                        </div>
+
+                        <!-- Result 2 -->
+                        <div class="bg-dionysos-black/80 border border-emerald-500/30 rounded-2xl p-4 sm:p-5">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-xs mb-3">
+                                <span class="text-emerald-400 font-extrabold uppercase tracking-wider">
+                                    <i class="fa-solid fa-circle-check mr-1"></i> Νίκη • Ομάδα Κοριτσιών
+                                </span>
+                                <span class="text-slate-400">11 Νοε 2026 • 2η Αγωνιστική</span>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="font-display font-bold text-sm sm:text-base text-slate-400">ΓΕΛ Νέας Ερυθραίας</div>
+                                <div class="flex items-center gap-2 bg-dionysos-blue px-3.5 py-1.5 rounded-xl border border-dionysos-gold/40">
+                                    <span class="font-display font-black text-lg text-slate-300">1</span>
+                                    <span class="text-slate-400 font-bold">-</span>
+                                    <span class="font-display font-black text-lg text-dionysos-gold">2</span>
+                                </div>
+                                <div class="font-display font-extrabold text-sm sm:text-base text-white">ΓΕΛ Διονύσου</div>
+                            </div>
+                            <div class="mt-2.5 text-center text-xs text-slate-400">
+                                Σετ: <span class="text-white font-semibold">(25-22, 19-25, 11-15)</span> • Κλειστό Ν. Ερυθραίας
+                            </div>
+                        </div>
+
+                        <!-- Result 3 -->
+                        <div class="bg-dionysos-black/80 border border-emerald-500/30 rounded-2xl p-4 sm:p-5">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-xs mb-3">
+                                <span class="text-emerald-400 font-extrabold uppercase tracking-wider">
+                                    <i class="fa-solid fa-circle-check mr-1"></i> Νίκη • Ομάδα Αγοριών
+                                </span>
+                                <span class="text-slate-400">04 Νοε 2026 • 1η Αγωνιστική</span>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="font-display font-bold text-sm sm:text-base text-slate-400">2ο ΓΕΛ Κηφισιάς</div>
+                                <div class="flex items-center gap-2 bg-dionysos-blue px-3.5 py-1.5 rounded-xl border border-dionysos-gold/40">
+                                    <span class="font-display font-black text-lg text-slate-300">0</span>
+                                    <span class="text-slate-400 font-bold">-</span>
+                                    <span class="font-display font-black text-lg text-dionysos-gold">2</span>
+                                </div>
+                                <div class="font-display font-extrabold text-sm sm:text-base text-white">ΓΕΛ Διονύσου</div>
+                            </div>
+                            <div class="mt-2.5 text-center text-xs text-slate-400">
+                                Σετ: <span class="text-white font-semibold">(16-25, 20-25)</span> • Ζηρίνειο
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (5 cols): Group Standings Table -->
+                <div class="lg:col-span-5 bg-dionysos-navy border border-dionysos-gold/25 rounded-3xl p-5 sm:p-7 shadow-xl">
+                    <div class="flex items-center justify-between mb-5">
+                        <div>
+                            <h3 class="font-display font-black text-lg sm:text-xl text-white">
+                                Βαθμολογία Α' Ομίλου
+                            </h3>
+                            <p class="text-xs text-slate-400">Διεύθυνση Δ.Ε. Ανατολικής Αττικής</p>
+                        </div>
+                        <span class="w-10 h-10 rounded-xl bg-dionysos-gold/15 border border-dionysos-gold/40 flex items-center justify-center text-dionysos-gold">
+                            <i class="fa-solid fa-ranking-star"></i>
+                        </span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-dionysos-gold/30 text-[11px] font-display font-extrabold uppercase tracking-wider text-dionysos-gold">
+                                    <th class="py-3 px-2">#</th>
+                                    <th class="py-3 px-2">Σχολείο</th>
+                                    <th class="py-3 px-1.5 text-center" title="Αγώνες">ΑΓ</th>
+                                    <th class="py-3 px-1.5 text-center" title="Νίκες">Ν</th>
+                                    <th class="py-3 px-1.5 text-center" title="Ήττες">Η</th>
+                                    <th class="py-3 px-1.5 text-center" title="Σετ">ΣΕΤ</th>
+                                    <th class="py-3 px-2 text-center" title="Βαθμοί">ΒΑΘ</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/10 text-xs sm:text-sm">
+                                <!-- 1st Place: ΓΕΛ ΔΙΟΝΥΣΟΥ -->
+                                <tr class="bg-dionysos-gold/15 font-bold text-white">
+                                    <td class="py-3.5 px-2">
+                                        <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-dionysos-gold text-dionysos-black font-display font-black text-xs">1</span>
+                                    </td>
+                                    <td class="py-3.5 px-2 font-display font-extrabold text-dionysos-goldLight">
+                                        ΓΕΛ Διονύσου
+                                    </td>
+                                    <td class="py-3.5 px-1.5 text-center">2</td>
+                                    <td class="py-3.5 px-1.5 text-center text-emerald-400">2</td>
+                                    <td class="py-3.5 px-1.5 text-center">0</td>
+                                    <td class="py-3.5 px-1.5 text-center">4-0</td>
+                                    <td class="py-3.5 px-2 text-center font-display font-black text-base text-dionysos-gold">6</td>
+                                </tr>
+                                <!-- 2nd Place -->
+                                <tr class="text-slate-200 hover:bg-white/5">
+                                    <td class="py-3.5 px-2 font-bold text-slate-400">2</td>
+                                    <td class="py-3.5 px-2 font-semibold">ΓΕΛ Άνοιξης</td>
+                                    <td class="py-3.5 px-1.5 text-center">2</td>
+                                    <td class="py-3.5 px-1.5 text-center">2</td>
+                                    <td class="py-3.5 px-1.5 text-center">0</td>
+                                    <td class="py-3.5 px-1.5 text-center">4-1</td>
+                                    <td class="py-3.5 px-2 text-center font-display font-extrabold text-white">5</td>
+                                </tr>
+                                <!-- 3rd Place -->
+                                <tr class="text-slate-300 hover:bg-white/5">
+                                    <td class="py-3.5 px-2 font-bold text-slate-400">3</td>
+                                    <td class="py-3.5 px-2">ΓΕΛ Δροσιάς</td>
+                                    <td class="py-3.5 px-1.5 text-center">2</td>
+                                    <td class="py-3.5 px-1.5 text-center">1</td>
+                                    <td class="py-3.5 px-1.5 text-center">1</td>
+                                    <td class="py-3.5 px-1.5 text-center">3-2</td>
+                                    <td class="py-3.5 px-2 text-center font-display font-bold text-white">4</td>
+                                </tr>
+                                <!-- 4th Place -->
+                                <tr class="text-slate-300 hover:bg-white/5">
+                                    <td class="py-3.5 px-2 font-bold text-slate-400">4</td>
+                                    <td class="py-3.5 px-2">ΓΕΛ Εκάλης</td>
+                                    <td class="py-3.5 px-1.5 text-center">2</td>
+                                    <td class="py-3.5 px-1.5 text-center">1</td>
+                                    <td class="py-3.5 px-1.5 text-center">1</td>
+                                    <td class="py-3.5 px-1.5 text-center">2-3</td>
+                                    <td class="py-3.5 px-2 text-center font-display font-bold text-white">2</td>
+                                </tr>
+                                <!-- 5th Place -->
+                                <tr class="text-slate-400 hover:bg-white/5">
+                                    <td class="py-3.5 px-2 font-bold">5</td>
+                                    <td class="py-3.5 px-2">2ο ΓΕΛ Κηφισιάς</td>
+                                    <td class="py-3.5 px-1.5 text-center">2</td>
+                                    <td class="py-3.5 px-1.5 text-center">0</td>
+                                    <td class="py-3.5 px-1.5 text-center">2</td>
+                                    <td class="py-3.5 px-1.5 text-center">0-4</td>
+                                    <td class="py-3.5 px-2 text-center font-display font-bold">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-white/10 flex items-center gap-2 text-xs text-slate-400">
+                        <span class="w-2.5 h-2.5 rounded-full bg-dionysos-gold shrink-0"></span>
+                        <span>Οι 2 πρώτες ομάδες προκρίνονται στα προημιτελικά.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. ΝΕΑ & ΑΝΑΚΟΙΝΩΣΕΙΣ ==================== -->
+    <section id="news" class="py-16 sm:py-24 bg-dionysos-navy relative border-t border-dionysos-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+                <div>
+                    <span class="inline-block text-xs font-display font-extrabold uppercase tracking-widest text-dionysos-gold mb-2">
+                        <i class="fa-regular fa-newspaper mr-1"></i> Επικαιρότητα Ομάδας
+                    </span>
+                    <h2 class="font-display font-black text-3xl sm:text-4xl text-white">
+                        Νέα & Ανακοινώσεις
+                    </h2>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md">
+                    Όλες οι τελευταίες εξελίξεις, διακρίσεις και δράσεις της ομάδας βόλεϊ του ΓΕΛ Διονύσου.
+                </p>
+            </div>
+
+            <!-- News Cards Grid -->
+            <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                <!-- Article 1 -->
+                <article class="bg-dionysos-black border border-dionysos-gold/25 rounded-3xl overflow-hidden shadow-xl flex flex-col group hover:border-dionysos-gold/60 transition-all">
+                    <div class="relative h-48 bg-gradient-to-br from-dionysos-blue to-dionysos-navy p-6 flex flex-col justify-between overflow-hidden">
+                        <svg class="absolute -right-6 -bottom-6 w-36 h-36 opacity-15 text-dionysos-gold group-hover:scale-110 transition-transform duration-500" viewBox="0 0 200 200">
+                            <use href="#gel-dionysou-emblem"/>
+                        </svg>
+                        <span class="self-start px-3 py-1 rounded-full bg-dionysos-gold text-dionysos-black font-display font-extrabold text-xs">
+                            Σχολικό Πρωτάθλημα
+                        </span>
+                        <div class="text-xs font-semibold text-slate-300">
+                            <i class="fa-regular fa-calendar text-dionysos-gold mr-1"></i> 14 Νοεμβρίου 2026
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-display font-extrabold text-lg sm:text-xl text-white group-hover:text-dionysos-gold transition-colors mb-2.5">
+                                Πρόκριση στην επόμενη φάση του Σχολικού Πρωταθλήματος!
+                            </h3>
+                            <p class="text-slate-400 text-sm line-clamp-3 leading-relaxed">
+                                Με δύο καθαρές νίκες στις πρώτες αγωνιστικές, το ΓΕΛ Διονύσου εξασφάλισε μαθηματικά την παρουσία του στα νοκ-άουτ της Ανατολικής Αττικής.
+                            </p>
+                        </div>
+                        <button data-article="0" class="open-article-btn inline-flex items-center gap-2 text-sm font-display font-extrabold text-dionysos-gold hover:text-dionysos-goldLight pt-2 transition-colors">
+                            <span>Διάβασε περισσότερα</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-dionysos-black border border-dionysos-gold/25 rounded-3xl overflow-hidden shadow-xl flex flex-col group hover:border-dionysos-gold/60 transition-all">
+                    <div class="relative h-48 bg-gradient-to-br from-dionysos-navy via-dionysos-blue to-amber-900/40 p-6 flex flex-col justify-between overflow-hidden">
+                        <i class="fa-solid fa-shirt absolute -right-4 -bottom-4 text-8xl text-dionysos-gold/15 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="self-start px-3 py-1 rounded-full bg-dionysos-blue border border-dionysos-gold/40 text-dionysos-goldLight font-display font-extrabold text-xs">
+                            Εξοπλισμός
+                        </span>
+                        <div class="text-xs font-semibold text-slate-300">
+                            <i class="fa-regular fa-calendar text-dionysos-gold mr-1"></i> 02 Νοεμβρίου 2026
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-display font-extrabold text-lg sm:text-xl text-white group-hover:text-dionysos-gold transition-colors mb-2.5">
+                                Νέες εμφανίσεις για τη σεζόν 2026-2027 με το νέο έμβλημα
+                            </h3>
+                            <p class="text-slate-400 text-sm line-clamp-3 leading-relaxed">
+                                Παρουσιάστηκαν οι νέες επίσημες εμφανίσεις της ομάδας μας σε βαθύ μπλε και χρυσό, με το ανανεωμένο έμβλημα του ΓΕΛ Διονύσου.
+                            </p>
+                        </div>
+                        <button data-article="1" class="open-article-btn inline-flex items-center gap-2 text-sm font-display font-extrabold text-dionysos-gold hover:text-dionysos-goldLight pt-2 transition-colors">
+                            <span>Διάβασε περισσότερα</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-dionysos-black border border-dionysos-gold/25 rounded-3xl overflow-hidden shadow-xl flex flex-col group hover:border-dionysos-gold/60 transition-all">
+                    <div class="relative h-48 bg-gradient-to-br from-dionysos-blue to-dionysos-black p-6 flex flex-col justify-between overflow-hidden">
+                        <i class="fa-solid fa-volleyball absolute -right-4 -bottom-4 text-8xl text-dionysos-gold/15 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="self-start px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-display font-extrabold text-xs">
+                            Ανακοίνωση
+                        </span>
+                        <div class="text-xs font-semibold text-slate-300">
+                            <i class="fa-regular fa-calendar text-dionysos-gold mr-1"></i> 20 Οκτωβρίου 2026
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-display font-extrabold text-lg sm:text-xl text-white group-hover:text-dionysos-gold transition-colors mb-2.5">
+                                Ανοιχτές προπονήσεις στο Κλειστό Γυμναστήριο Διονύσου
+                            </h3>
+                            <p class="text-slate-400 text-sm line-clamp-3 leading-relaxed">
+                                Προσκαλούμε όλους τους μαθητές και τις μαθήτριες της Α', Β' και Γ' Λυκείου να συμμετάσχουν στις ανοιχτές προπονήσεις γνωριμίας.
+                            </p>
+                        </div>
+                        <button data-article="2" class="open-article-btn inline-flex items-center gap-2 text-sm font-display font-extrabold text-dionysos-gold hover:text-dionysos-goldLight pt-2 transition-colors">
+                            <span>Διάβασε περισσότερα</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== 6. ΔΙΑΔΡΑΣΤΙΚΗ ΦΟΡΜΑ ΕΝΔΙΑΦΕΡΟΝΤΟΣ / ΕΠΙΚΟΙΝΩΝΙΑ ==================== -->
+    <section id="contact" class="py-16 sm:py-24 bg-dionysos-black relative border-t border-dionysos-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Left Info Column (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="inline-block text-xs font-display font-extrabold uppercase tracking-widest text-dionysos-gold mb-2">
+                            <i class="fa-solid fa-hand-fist mr-1"></i> Γίνε Μέλος της Ομάδας
+                        </span>
+                        <h2 class="font-display font-black text-3xl sm:text-4xl text-white mb-4">
+                            Δήλωσε Συμμετοχή στα Δοκιμαστικά
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Είσαι μαθητής ή μαθήτρια του <strong>Γενικού Λυκείου Διονύσου</strong> και αγαπάς το βόλεϊ; Συμπλήρωσε τη φόρμα ενδιαφέροντος για να λάβεις μέρος στις προπονήσεις της σχολικής μας ομάδας!
+                        </p>
+                    </div>
+
+                    <!-- Location & Contact Cards -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 bg-dionysos-navy/90 border border-white/10 p-4 rounded-2xl">
+                            <div class="w-11 h-11 rounded-xl bg-dionysos-gold/15 border border-dionysos-gold/30 flex items-center justify-center text-dionysos-gold shrink-0">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-sm text-white">Έδρα & Σχολείο</h4>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Γενικό Λύκειο Διονύσου, Διόνυσος 145 76, Αττική</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 bg-dionysos-navy/90 border border-white/10 p-4 rounded-2xl">
+                            <div class="w-11 h-11 rounded-xl bg-dionysos-gold/15 border border-dionysos-gold/30 flex items-center justify-center text-dionysos-gold shrink-0">
+                                <i class="fa-solid fa-basketball"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-sm text-white">Γήπεδο Προπονήσεων</h4>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Κλειστό Γυμναστήριο Διονύσου • Τρίτη & Πέμπτη 14:30 - 16:00</p>
+                            </div>
+                        </div>
+
+                        <!-- Instagram Social Card -->
+                        <div class="flex items-center justify-between bg-gradient-to-r from-dionysos-blue to-dionysos-navy border border-dionysos-gold/35 p-4 rounded-2xl">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-md">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-bold text-sm text-white">@gel_dionysou_volley</h4>
+                                    <p class="text-xs text-slate-300">Ακολούθησέ μας για stories αγώνων!</p>
+                                </div>
+                            </div>
+                            <button id="copy-ig-btn" class="px-3.5 py-2 rounded-xl bg-dionysos-gold text-dionysos-black font-display font-extrabold text-xs hover:bg-dionysos-goldLight transition-colors">
+                                <i class="fa-regular fa-copy mr-1"></i> Αντιγραφή
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Column (7 cols) -->
+                <div class="lg:col-span-7 bg-dionysos-navy border border-dionysos-gold/30 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                    <form id="tryout-form" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <!-- Full Name -->
+                            <div>
+                                <label for="student-name" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
+                                    Ονοματεπώνυμο Μαθητή/τριας *
+                                </label>
+                                <input type="text" id="student-name" required placeholder="π.χ. Αλέξανδρος Γεωργίου"
+                                    class="w-full px-4 py-3.5 rounded-xl bg-dionysos-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-dionysos-gold transition-colors">
+                            </div>
+
+                            <!-- School Class -->
+                            <div>
+                                <label for="student-class" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
+                                    Τάξη Λυκείου *
+                                </label>
+                                <select id="student-class" required
+                                    class="w-full px-4 py-3.5 rounded-xl bg-dionysos-black border border-white/15 text-white text-sm focus:outline-none focus:border-dionysos-gold transition-colors">
+                                    <option value="" disabled selected>Επίλεξε Τάξη...</option>
+                                    <option value="Α' Λυκείου">Α' Λυκείου</option>
+                                    <option value="Β' Λυκείου">Β' Λυκείου</option>
+                                    <option value="Γ' Λυκείου">Γ' Λυκείου</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <!-- Preferred Position -->
+                            <div>
+                                <label for="student-position" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
+                                    Θέση Προτίμησης *
+                                </label>
+                                <select id="student-position" required
+                                    class="w-full px-4 py-3.5 rounded-xl bg-dionysos-black border border-white/15 text-white text-sm focus:outline-none focus:border-dionysos-gold transition-colors">
+                                    <option value="" disabled selected>Επίλεξε Θέση...</option>
+                                    <option value="Πασαδόρος">Πασαδόρος</option>
+                                    <option value="Ακραίος">Ακραίος</option>
+                                    <option value="Κεντρικός">Κεντρικός</option>
+                                    <option value="Διαγώνιος">Διαγώνιος</option>
+                                    <option value="Λίμπερο">Λίμπερο</option>
+                                    <option value="Δεν έχω αποφασίσει ακόμα">Δεν έχω αποφασίσει ακόμα</option>
+                                </select>
+                            </div>
+
+                            <!-- Team Category -->
+                            <div>
+                                <label for="student-team" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
+                                    Τμήμα *
+                                </label>
+                                <select id="student-team" required
+                                    class="w-full px-4 py-3.5 rounded-xl bg-dionysos-black border border-white/15 text-white text-sm focus:outline-none focus:border-dionysos-gold transition-colors">
+                                    <option value="Ομάδα Αγοριών">Ομάδα Αγοριών</option>
+                                    <option value="Ομάδα Κοριτσιών">Ομάδα Κοριτσιών</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Experience / Notes -->
+                        <div>
+                            <label for="student-experience" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
+                                Προηγούμενη Εμπειρία / Σύλλογος (Προαιρετικό)
+                            </label>
+                            <textarea id="student-experience" rows="3" placeholder="Αναφέρετε αν αγωνίζεστε σε κάποιο αθλητικό σωματείο ή το επίπεδο εμπειρίας σας..."
+                                class="w-full px-4 py-3 rounded-xl bg-dionysos-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-dionysos-gold transition-colors"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full bg-gradient-to-r from-dionysos-gold to-dionysos-goldLight hover:from-dionysos-goldLight hover:to-white text-dionysos-black font-display font-black text-sm sm:text-base py-4 rounded-2xl shadow-lg shadow-dionysos-gold/20 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Υποβολή Αίτησης Συμμετοχής</span>
+                        </button>
+                    </form>
+
+                    <!-- Instant Confirmation Message Box (Hidden by default) -->
+                    <div id="form-confirmation" class="hidden mt-6 p-5 rounded-2xl bg-emerald-950/80 border border-emerald-400/50 text-emerald-100 space-y-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-full bg-emerald-500 text-dionysos-black flex items-center justify-center font-bold shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h4 class="font-display font-extrabold text-base text-white">Η δήλωσή σου καταχωρήθηκε επιτυχώς!</h4>
+                        </div>
+                        <p id="confirmation-details" class="text-xs sm:text-sm text-emerald-200 pl-12 leading-relaxed"></p>
+                        <div class="pl-12 pt-1">
+                            <button id="new-submission-btn" class="text-xs font-bold text-dionysos-gold underline hover:text-white">
+                                Νέα καταχώρηση
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. FOOTER ==================== -->
+    <footer class="bg-dionysos-navy border-t border-dionysos-gold/30 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-white/10 items-center">
+                
+                <!-- Brand & Crest -->
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 shrink-0">
+                        <svg viewBox="0 0 200 200" class="w-full h-full">
+                            <use href="#gel-dionysou-emblem"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-black text-lg text-white tracking-wide">ΓΕΛ ΔΙΟΝΥΣΟΥ</h3>
+                        <p class="text-xs text-dionysos-gold font-semibold">Σχολική Ομάδα Πετοσφαίρισης</p>
+                        <p class="text-xs text-slate-400 mt-1">Γενικό Λύκειο Διονύσου • Αττική</p>
+                    </div>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="flex flex-wrap justify-start md:justify-center gap-x-6 gap-y-2 text-xs sm:text-sm font-semibold text-slate-300">
+                    <a href="#home" class="hover:text-dionysos-gold transition-colors">Αρχική</a>
+                    <a href="#team" class="hover:text-dionysos-gold transition-colors">Το Ρόστερ</a>
+                    <a href="#matches" class="hover:text-dionysos-gold transition-colors">Πρόγραμμα</a>
+                    <a href="#news" class="hover:text-dionysos-gold transition-colors">Νέα</a>
+                    <a href="#contact" class="hover:text-dionysos-gold transition-colors">Δοκιμαστικά</a>
+                </div>
+
+                <!-- School Spirit Motto -->
+                <div class="md:text-right">
+                    <p class="font-display font-bold text-sm text-dionysos-goldLight italic">
+                        «Αἰὲν ἀριστεύειν καὶ ὑπείροχον ἔμμεναι ἄλλων»
+                    </p>
+                    <p class="text-xs text-slate-400 mt-1">
+                        Με σεβασμό στο σχολικό αθλητισμό & το ευ αγωνίζεσθαι.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+                <p>© 2026-2027 Γενικό Λύκειο Διονύσου — Ομάδα Βόλεϊ. Με επιφύλαξη παντός δικαιώματος.</p>
+                <p class="text-slate-500">Σχεδιασμός εμπνευσμένος από το έμβλημα του ΓΕΛ Διονύσου</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL FOR READING FULL NEWS ARTICLES ==================== -->
+    <div id="article-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-dionysos-black/85 backdrop-blur-sm">
+        <div class="bg-dionysos-navy border border-dionysos-gold/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative animate-[fadeIn_0.2s_ease-out]">
+            <button id="close-modal-btn" aria-label="Κλείσιμο παραθύρου" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-dionysos-black border border-white/15 text-slate-300 hover:text-dionysos-gold flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <span id="modal-category" class="inline-block px-3 py-1 rounded-full bg-dionysos-gold text-dionysos-black font-display font-extrabold text-xs mb-3">
+                Κατηγορία
+            </span>
+            <h3 id="modal-title" class="font-display font-black text-2xl sm:text-3xl text-white mb-2">
+                Τίτλος Άρθρου
+            </h3>
+            <p id="modal-date" class="text-xs text-dionysos-goldLight font-semibold mb-5">
+                Ημερομηνία
+            </p>
+            <div id="modal-body" class="text-slate-200 text-sm sm:text-base leading-relaxed space-y-4 border-t border-white/10 pt-4">
+                <!-- Full article text -->
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex justify-end">
+                <button id="modal-done-btn" class="px-6 py-2.5 rounded-xl bg-dionysos-blue hover:bg-dionysos-royal text-white font-display font-bold text-xs sm:text-sm border border-dionysos-gold/30 transition-colors">
+                    Κλείσιμο
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Toast Notification (Replaces alert()) -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden items-center gap-3 bg-dionysos-gold text-dionysos-black font-display font-extrabold text-xs sm:text-sm px-5 py-3.5 rounded-2xl shadow-2xl">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span id="toast-text">Αντιγράφηκε!</span>
+    </div>
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. ROSTER DATA (Boys & Girls Teams of ΓΕΛ Διονύσου)
+            const playersData = [
+                // Boys Team (Ομάδα Αγοριών)
+                { number: 7, name: "Νίκος Αντωνίου", category: "boys", position: "Πασαδόρος", grade: "Γ' Λυκείου", captain: true, statLabel: "Ακρίβεια Πάσας", statVal: "92%", height: "1.84μ" },
+                { number: 11, name: "Κωνσταντίνος Βλάχος", category: "boys", position: "Διαγώνιος", grade: "Γ' Λυκείου", captain: false, statLabel: "Πόντοι / Αγώνα", statVal: "16.5", height: "1.91μ" },
+                { number: 4, name: "Γιώργος Δημητρίου", category: "boys", position: "Ακραίος", grade: "Β' Λυκείου", captain: false, statLabel: "Υποδοχή", statVal: "86%", height: "1.86μ" },
+                { number: 15, name: "Αλέξανδρος Καραγιάννης", category: "boys", position: "Κεντρικός", grade: "Γ' Λυκείου", captain: false, statLabel: "Μπλοκ / Σετ", statVal: "2.4", height: "1.94μ" },
+                { number: 9, name: "Παναγιώτης Οικονόμου", category: "boys", position: "Ακραίος", grade: "Α' Λυκείου", captain: false, statLabel: "Άσσοι / Αγώνα", statVal: "3.1", height: "1.82μ" },
+                { number: 1, name: "Στέφανος Παπαγεωργίου", category: "boys", position: "Λίμπερο", grade: "Β' Λυκείου", captain: false, statLabel: "Άμυνες / Σετ", statVal: "6.8", height: "1.76μ" },
+                { number: 12, name: "Δημήτρης Σταθόπουλος", category: "boys", position: "Κεντρικός", grade: "Β' Λυκείου", captain: false, statLabel: "Επίθεση 1ου Χρόνου", statVal: "78%", height: "1.89μ" },
+                { number: 5, name: "Μάριος Τριανταφύλλου", category: "boys", position: "Πασαδόρος", grade: "Α' Λυκείου", captain: false, statLabel: "Σερβίς", statVal: "89%", height: "1.80μ" },
+
+                // Girls Team (Ομάδα Κοριτσιών)
+                { number: 10, name: "Μαρία Αλεξίου", category: "girls", position: "Ακραίος", grade: "Γ' Λυκείου", captain: true, statLabel: "Πόντοι / Αγώνα", statVal: "15.2", height: "1.78μ" },
+                { number: 3, name: "Ελένη Βασιλείου", category: "girls", position: "Πασαδόρος", grade: "Γ' Λυκείου", captain: false, statLabel: "Ακρίβεια Πάσας", statVal: "94%", height: "1.73μ" },
+                { number: 14, name: "Σοφία Γεωργιάδου", category: "girls", position: "Κεντρικός", grade: "Β' Λυκείου", captain: false, statLabel: "Μπλοκ / Σετ", statVal: "2.8", height: "1.83μ" },
+                { number: 8, name: "Άννα Κωνσταντινίδου", category: "girls", position: "Διαγώνιος", grade: "Γ' Λυκείου", captain: false, statLabel: "Αποτελεσματικότητα", statVal: "81%", height: "1.80μ" },
+                { number: 2, name: "Κατερίνα Λάμπρου", category: "girls", position: "Λίμπερο", grade: "Β' Λυκείου", captain: false, statLabel: "Άριστη Υποδοχή", statVal: "88%", height: "1.67μ" },
+                { number: 16, name: "Ιωάννα Νικολάου", category: "girls", position: "Ακραίος", grade: "Α' Λυκείου", captain: false, statLabel: "Άσσοι / Αγώνα", statVal: "3.5", height: "1.75μ" },
+                { number: 6, name: "Χριστίνα Παπανικολάου", category: "girls", position: "Κεντρικός", grade: "Α' Λυκείου", captain: false, statLabel: "Μπλοκ / Σετ", statVal: "2.1", height: "1.81μ" },
+                { number: 18, name: "Δήμητρα Σπυροπούλου", category: "girls", position: "Πασαδόρος", grade: "Β' Λυκείου", captain: false, statLabel: "Σερβίς", statVal: "90%", height: "1.72μ" }
+            ];
+
+            // 2. FULL ARTICLES DATA FOR MODAL
+            const articlesData = [
+                {
+                    category: "Σχολικό Πρωτάθλημα",
+                    title: "Πρόκριση στην επόμενη φάση του Σχολικού Πρωταθλήματος!",
+                    date: "14 Νοεμβρίου 2026 • Γραφείο Φυσικής Αγωγής",
+                    paragraphs: [
+                        "Με εξαιρετική εμφάνιση και απόλυτη προσήλωση στο πλάνο των καθηγητών Φυσικής Αγωγής, η ομάδα βόλεϊ του ΓΕΛ Διονύσου πέτυχε δύο εντυπωσιακές νίκες στις πρώτες αγωνιστικές του Σχολικού Πρωταθλήματος Λυκείων Ανατολικής Αττικής.",
+                        "Τόσο η ομάδα Αγοριών όσο και η ομάδα Κοριτσιών έδειξαν υψηλό επίπεδο συνεργασίας, δυναμικό σερβίς και υποδειγματικό ήθος απέναντι στους αντιπάλους τους, κερδίζοντας το χειροκρότημα μαθητών και εκπαιδευτικών.",
+                        "Η προετοιμασία συνεχίζεται εντατικά ενόψει του μεγάλου εντός έδρας αγώνα με το ΓΕΛ Άνοιξης στο Κλειστό Γυμναστήριο Διονύσου."
+                    ]
+                },
+                {
+                    category: "Εξοπλισμός & Ταυτότητα",
+                    title: "Νέες εμφανίσεις για τη σεζόν 2026-2027 με το νέο έμβλημα",
+                    date: "02 Νοεμβρίου 2026 • Σύλλογος Διδασκόντων & Μαθητική Κοινότητα",
+                    paragraphs: [
+                        "Με ιδιαίτερη περηφάνια παρουσιάστηκαν οι νέες αγωνιστικές εμφανίσεις της σχολικής μας ομάδας για τη χρονιά 2026-2027.",
+                        "Σχεδιασμένες στα παραδοσιακά χρώματα του σχολείου μας — βαθύ μπλε της νύχτας και λαμπερό χρυσό — φέρουν στο στήθος το εμβληματικό σήμα «ΓΕΛ ΔΙΟΝΥΣΟΥ» με τους κλασικούς κίονες, τα δάφνινα στεφάνια και τη μπάλα του βόλεϊ.",
+                        "Ευχαριστούμε θερμά τον Σύλλογο Γονέων και Κηδεμόνων του ΓΕΛ Διονύσου για τη πολύτιμη στήριξή του στην προμήθεια του αθλητικού υλικού."
+                    ]
+                },
+                {
+                    category: "Ανακοίνωση Προπονήσεων",
+                    title: "Ανοιχτές προπονήσεις στο Κλειστό Γυμναστήριο Διονύσου",
+                    date: "20 Οκτωβρίου 2026 • Τμήμα Φυσικής Αγωγής ΓΕΛ Διονύσου",
+                    paragraphs: [
+                        "Το Γραφείο Φυσικής Αγωγής του ΓΕΛ Διονύσου καλεί όλους τους μαθητές και τις μαθήτριες της Α', Β' και Γ' Λυκείου που ενδιαφέρονται να ενταχθούν στη σχολική ομάδα βόλεϊ να δηλώσουν συμμετοχή.",
+                        "Οι προπονήσεις πραγματοποιούνται κάθε Τρίτη και Πέμπτη (14:30 - 16:00) στο Κλειστό Γυμναστήριο Διονύσου. Απαραίτητη προϋπόθεση για τη συμμετοχή είναι η προσκόμιση έγκυρου Ατομικού Δελτίου Υγείας Μαθητή (Α.Δ.Υ.Μ.).",
+                        "Μπορείτε να συμπληρώσετε ηλεκτρονικά τη φόρμα ενδιαφέροντος στην ιστοσελίδα μας για να κλείσετε θέση στο επόμενο δοκιμαστικό!"
+                    ]
+                }
+            ];
+
+            // 3. MOBILE MENU TOGGLE
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuIcon.classList.remove('fa-bars');
+                    mobileMenuIcon.classList.add('fa-xmark');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('fa-xmark');
+                    mobileMenuIcon.classList.add('fa-bars');
+                }
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('fa-xmark');
+                    mobileMenuIcon.classList.add('fa-bars');
+                });
+            });
+
+            // 4. ROSTER FILTERING & RENDERING
+            let currentCategory = 'all';
+            let currentPosition = 'all';
+
+            const rosterGrid = document.getElementById('roster-grid');
+            const rosterEmpty = document.getElementById('roster-empty');
+            const catButtons = document.querySelectorAll('.cat-btn');
+            const posButtons = document.querySelectorAll('.pos-btn');
+            const resetFiltersBtn = document.getElementById('reset-filters-btn');
+
+            function renderRoster() {
+                const filtered = playersData.filter(player => {
+                    const matchCategory = currentCategory === 'all' || player.category === currentCategory;
+                    const matchPosition = currentPosition === 'all' || player.position === currentPosition;
+                    return matchCategory && matchPosition;
+                });
+
+                rosterGrid.innerHTML = '';
+
+                if (filtered.length === 0) {
+                    rosterGrid.classList.add('hidden');
+                    rosterEmpty.classList.remove('hidden');
+                    return;
+                }
+
+                rosterGrid.classList.remove('hidden');
+                rosterEmpty.classList.add('hidden');
+
+                filtered.forEach(player => {
+                    const categoryLabel = player.category === 'boys' ? 'Αγόρια' : 'Κορίτσια';
+                    const categoryBadgeColor = player.category === 'boys' 
+                        ? 'bg-dionysos-blue text-dionysos-goldLight border-dionysos-gold/30' 
+                        : 'bg-amber-950/80 text-dionysos-gold border-dionysos-gold/40';
+
+                    const captainBadge = player.captain 
+                        ? `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-dionysos-gold text-dionysos-black font-display font-black text-xs shadow" title="Αρχηγός Ομάδας">C</span>` 
+                        : '';
+
+                    const card = document.createElement('div');
+                    card.className = 'bg-dionysos-black border border-dionysos-gold/25 hover:border-dionysos-gold rounded-3xl p-5 shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group';
+                    card.innerHTML = `
+                        <div>
+                            <!-- Top Row: Jersey Number & Category Badge -->
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-dionysos-blue to-dionysos-navy border border-dionysos-gold/40 flex items-center justify-center font-display font-black text-xl text-dionysos-gold group-hover:scale-105 transition-transform">
+                                    #${player.number}
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    ${captainBadge}
+                                    <span class="px-2.5 py-1 rounded-full text-[11px] font-bold border ${categoryBadgeColor}">
+                                        ${categoryLabel}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Player Name & Position -->
+                            <h3 class="font-display font-extrabold text-lg text-white group-hover:text-dionysos-gold transition-colors">
+                                ${player.name}
+                            </h3>
+                            <div class="flex items-center gap-2 mt-1 text-xs font-semibold text-slate-300">
+                                <span class="text-dionysos-goldLight">${player.position}</span>
+                                <span>•</span>
+                                <span class="text-slate-400">${player.grade}</span>
+                            </div>
+                        </div>
+
+                        <!-- Player Stats Footer -->
+                        <div class="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between text-xs">
+                            <div>
+                                <span class="block text-slate-400 text-[11px]">${player.statLabel}</span>
+                                <span class="font-display font-extrabold text-sm text-white">${player.statVal}</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-slate-400 text-[11px]">Ύψος</span>
+                                <span class="font-display font-bold text-sm text-dionysos-gold">${player.height}</span>
+                            </div>
+                        </div>
+                    `;
+                    rosterGrid.appendChild(card);
+                });
+            }
+
+            catButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    catButtons.forEach(b => {
+                        b.classList.remove('active', 'bg-dionysos-gold', 'text-dionysos-black', 'shadow-md');
+                        b.classList.add('bg-dionysos-blue', 'text-slate-200');
+                    });
+                    btn.classList.add('active', 'bg-dionysos-gold', 'text-dionysos-black', 'shadow-md');
+                    btn.classList.remove('bg-dionysos-blue', 'text-slate-200');
+                    
+                    currentCategory = btn.dataset.category;
+                    renderRoster();
+                });
+            });
+
+            posButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    posButtons.forEach(b => {
+                        b.classList.remove('active', 'bg-white', 'text-dionysos-black');
+                        b.classList.add('bg-dionysos-navy', 'text-slate-300');
+                    });
+                    btn.classList.add('active', 'bg-white', 'text-dionysos-black');
+                    btn.classList.remove('bg-dionysos-navy', 'text-slate-300');
+
+                    currentPosition = btn.dataset.position;
+                    renderRoster();
+                });
+            });
+
+            resetFiltersBtn.addEventListener('click', () => {
+                currentCategory = 'all';
+                currentPosition = 'all';
+                catButtons[0].click();
+                posButtons[0].click();
+            });
+
+            // Initial Roster Render
+            renderRoster();
+
+            // 5. MATCHES TABS (UPCOMING VS RESULTS)
+            const tabUpcoming = document.getElementById('tab-upcoming');
+            const tabResults = document.getElementById('tab-results');
+            const contentUpcoming = document.getElementById('content-upcoming');
+            const contentResults = document.getElementById('content-results');
+
+            tabUpcoming.addEventListener('click', () => {
+                tabUpcoming.classList.add('bg-dionysos-gold', 'text-dionysos-black', 'shadow');
+                tabUpcoming.classList.remove('text-slate-300');
+                tabResults.classList.remove('bg-dionysos-gold', 'text-dionysos-black', 'shadow');
+                tabResults.classList.add('text-slate-300');
+
+                contentUpcoming.classList.remove('hidden');
+                contentResults.classList.add('hidden');
+            });
+
+            tabResults.addEventListener('click', () => {
+                tabResults.classList.add('bg-dionysos-gold', 'text-dionysos-black', 'shadow');
+                tabResults.classList.remove('text-slate-300');
+                tabUpcoming.classList.remove('bg-dionysos-gold', 'text-dionysos-black', 'shadow');
+                tabUpcoming.classList.add('text-slate-300');
+
+                contentResults.classList.remove('hidden');
+                contentUpcoming.classList.add('hidden');
+            });
+
+            // 6. NEWS ARTICLE MODAL
+            const articleModal = document.getElementById('article-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const modalDoneBtn = document.getElementById('modal-done-btn');
+            const openArticleBtns = document.querySelectorAll('.open-article-btn');
+
+            const modalCategory = document.getElementById('modal-category');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDate = document.getElementById('modal-date');
+            const modalBody = document.getElementById('modal-body');
+
+            function openModal(index) {
+                const article = articlesData[index];
+                if (!article) return;
+
+                modalCategory.textContent = article.category;
+                modalTitle.textContent = article.title;
+                modalDate.textContent = article.date;
+                modalBody.innerHTML = article.paragraphs.map(p => `<p>${p}</p>`).join('');
+
+                articleModal.classList.remove('hidden');
+                articleModal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                articleModal.classList.add('hidden');
+                articleModal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+
+            openArticleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = parseInt(btn.dataset.article, 10);
+                    openModal(idx);
+                });
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modalDoneBtn.addEventListener('click', closeModal);
+            articleModal.addEventListener('click', (e) => {
+                if (e.target === articleModal) closeModal();
+            });
+
+            // 7. TRYOUT / INTEREST FORM SUBMISSION
+            const tryoutForm = document.getElementById('tryout-form');
+            const formConfirmation = document.getElementById('form-confirmation');
+            const confirmationDetails = document.getElementById('confirmation-details');
+            const newSubmissionBtn = document.getElementById('new-submission-btn');
+
+            tryoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('student-name').value.trim();
+                const studentClass = document.getElementById('student-class').value;
+                const position = document.getElementById('student-position').value;
+                const team = document.getElementById('student-team').value;
+
+                confirmationDetails.innerHTML = `
+                    Ευχαριστούμε, <strong>${name}</strong> (${studentClass})! Η αίτησή σου για την <strong>${team}</strong> στη θέση <strong>${position}</strong> εστάλη στο Γραφείο Φυσικής Αγωγής του ΓΕΛ Διονύσου. Σε περιμένουμε την επόμενη Τρίτη στις 14:30 στο Κλειστό Γυμναστήριο Διονύσου!
+                `;
+
+                tryoutForm.classList.add('hidden');
+                formConfirmation.classList.remove('hidden');
+            });
+
+            newSubmissionBtn.addEventListener('click', () => {
+                tryoutForm.reset();
+                formConfirmation.classList.add('hidden');
+                tryoutForm.classList.remove('hidden');
+            });
+
+            // 8. COPY INSTAGRAM HANDLE WITH CUSTOM TOAST (NO alert())
+            const copyIgBtn = document.getElementById('copy-ig-btn');
+            const toastNotification = document.getElementById('toast-notification');
+            const toastText = document.getElementById('toast-text');
+
+            copyIgBtn.addEventListener('click', () => {
+                const tempInput = document.createElement('input');
+                tempInput.value = '@gel_dionysou_volley';
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                toastText.textContent = 'Αντιγράφηκε το @gel_dionysou_volley!';
+                toastNotification.classList.remove('hidden');
+                toastNotification.classList.add('flex');
+
+                setTimeout(() => {
+                    toastNotification.classList.add('hidden');
+                    toastNotification.classList.remove('flex');
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
        =================================================== -->
   <main>
     <h1>Βολεϊ Διονύσου</h1>
