@@ -172,7 +172,7 @@
                 <div class="flex items-center gap-3">
                     <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-dionysos-gold to-dionysos-goldLight hover:from-dionysos-goldLight hover:to-white text-dionysos-black font-display font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md shadow-dionysos-gold/25 hover:shadow-dionysos-gold/40 transition-all transform hover:-translate-y-0.5">
                         <i class="fa-solid fa-volleyball"></i>
-                        <span>Εγγραφές / Δοκιμαστικά</span>
+                        <span>Γίνε Μέλος</span>
                     </a>
 
                     <!-- Mobile Hamburger Button -->
@@ -193,7 +193,7 @@
             <div class="pt-2">
                 <a href="#contact" class="mobile-nav-link flex items-center justify-center gap-2 w-full bg-gradient-to-r from-dionysos-gold to-dionysos-goldLight text-dionysos-black font-display font-extrabold text-sm px-5 py-3.5 rounded-xl shadow-lg">
                     <i class="fa-solid fa-volleyball"></i>
-                    <span>Εγγραφές / Δοκιμαστικά</span>
+                    <span>Γίνε Μέλος</span>
                 </a>
             </div>
         </div>
@@ -829,16 +829,16 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                 
                 <!-- Left Info Column (5 cols) -->
-                <div class="lg:col-span-5 space-y-6">
+                <div class="lg:col-span-12 max-w-3xl mx-auto w-full space-y-6">
                     <div>
                         <span class="inline-block text-xs font-display font-extrabold uppercase tracking-widest text-dionysos-gold mb-2">
                             <i class="fa-solid fa-hand-fist mr-1"></i> Γίνε Μέλος της Ομάδας
                         </span>
                         <h2 class="font-display font-black text-3xl sm:text-4xl text-white mb-4">
-                            Δήλωσε Συμμετοχή στα Δοκιμαστικά
+                            Θέλεις να μπεις στην ομάδα;
                         </h2>
                         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                            Είσαι μαθητής ή μαθήτρια του <strong>Γενικού Λυκείου Διονύσου</strong> και αγαπάς το βόλεϊ; Συμπλήρωσε τη φόρμα ενδιαφέροντος για να λάβεις μέρος στις προπονήσεις της σχολικής μας ομάδας!
+                            Είσαι μαθητής ή μαθήτρια του <strong>Γενικού Λυκείου Διονύσου</strong> και αγαπάς το βόλεϊ; Έλα σε μια προπόνηση ή μίλησε με τους καθηγητές Φυσικής Αγωγής στο σχολείο για να γίνεις μέλος της σχολικής μας ομάδας!
                         </p>
                     </div>
 
@@ -877,98 +877,6 @@
                             </div>
                             <button id="copy-ig-btn" class="px-3.5 py-2 rounded-xl bg-dionysos-gold text-dionysos-black font-display font-extrabold text-xs hover:bg-dionysos-goldLight transition-colors">
                                 <i class="fa-regular fa-copy mr-1"></i> Αντιγραφή
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Form Column (7 cols) -->
-                <div class="lg:col-span-7 bg-dionysos-navy border border-dionysos-gold/30 rounded-3xl p-6 sm:p-8 shadow-2xl">
-                    <form id="tryout-form" class="space-y-5">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <!-- Full Name -->
-                            <div>
-                                <label for="student-name" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
-                                    Ονοματεπώνυμο Μαθητή/τριας *
-                                </label>
-                                <input type="text" id="student-name" required placeholder="π.χ. Αλέξανδρος Γεωργίου"
-                                    class="w-full px-4 py-3.5 rounded-xl bg-dionysos-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-dionysos-gold transition-colors">
-                            </div>
-
-                            <!-- School Class -->
-                            <div>
-                                <label for="student-class" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
-                                    Τάξη Λυκείου *
-                                </label>
-                                <select id="student-class" required
-                                    class="w-full px-4 py-3.5 rounded-xl bg-dionysos-black border border-white/15 text-white text-sm focus:outline-none focus:border-dionysos-gold transition-colors">
-                                    <option value="" disabled selected>Επίλεξε Τάξη...</option>
-                                    <option value="Α' Λυκείου">Α' Λυκείου</option>
-                                    <option value="Β' Λυκείου">Β' Λυκείου</option>
-                                    <option value="Γ' Λυκείου">Γ' Λυκείου</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <!-- Preferred Position -->
-                            <div>
-                                <label for="student-position" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
-                                    Θέση Προτίμησης *
-                                </label>
-                                <select id="student-position" required
-                                    class="w-full px-4 py-3.5 rounded-xl bg-dionysos-black border border-white/15 text-white text-sm focus:outline-none focus:border-dionysos-gold transition-colors">
-                                    <option value="" disabled selected>Επίλεξε Θέση...</option>
-                                    <option value="Πασαδόρος">Πασαδόρος</option>
-                                    <option value="Ακραίος">Ακραίος</option>
-                                    <option value="Κεντρικός">Κεντρικός</option>
-                                    <option value="Διαγώνιος">Διαγώνιος</option>
-                                    <option value="Λίμπερο">Λίμπερο</option>
-                                    <option value="Δεν έχω αποφασίσει ακόμα">Δεν έχω αποφασίσει ακόμα</option>
-                                </select>
-                            </div>
-
-                            <!-- Team Category -->
-                            <div>
-                                <label for="student-team" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
-                                    Τμήμα *
-                                </label>
-                                <select id="student-team" required
-                                    class="w-full px-4 py-3.5 rounded-xl bg-dionysos-black border border-white/15 text-white text-sm focus:outline-none focus:border-dionysos-gold transition-colors">
-                                    <option value="Ομάδα Αγοριών">Ομάδα Αγοριών</option>
-                                    <option value="Ομάδα Κοριτσιών">Ομάδα Κοριτσιών</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Experience / Notes -->
-                        <div>
-                            <label for="student-experience" class="block text-xs font-display font-bold uppercase tracking-wider text-dionysos-gold mb-2">
-                                Προηγούμενη Εμπειρία / Σύλλογος (Προαιρετικό)
-                            </label>
-                            <textarea id="student-experience" rows="3" placeholder="Αναφέρετε αν αγωνίζεστε σε κάποιο αθλητικό σωματείο ή το επίπεδο εμπειρίας σας..."
-                                class="w-full px-4 py-3 rounded-xl bg-dionysos-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-dionysos-gold transition-colors"></textarea>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <button type="submit" class="w-full bg-gradient-to-r from-dionysos-gold to-dionysos-goldLight hover:from-dionysos-goldLight hover:to-white text-dionysos-black font-display font-black text-sm sm:text-base py-4 rounded-2xl shadow-lg shadow-dionysos-gold/20 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <span>Υποβολή Αίτησης Συμμετοχής</span>
-                        </button>
-                    </form>
-
-                    <!-- Instant Confirmation Message Box (Hidden by default) -->
-                    <div id="form-confirmation" class="hidden mt-6 p-5 rounded-2xl bg-emerald-950/80 border border-emerald-400/50 text-emerald-100 space-y-2">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-full bg-emerald-500 text-dionysos-black flex items-center justify-center font-bold shrink-0">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <h4 class="font-display font-extrabold text-base text-white">Η δήλωσή σου καταχωρήθηκε επιτυχώς!</h4>
-                        </div>
-                        <p id="confirmation-details" class="text-xs sm:text-sm text-emerald-200 pl-12 leading-relaxed"></p>
-                        <div class="pl-12 pt-1">
-                            <button id="new-submission-btn" class="text-xs font-bold text-dionysos-gold underline hover:text-white">
-                                Νέα καταχώρηση
                             </button>
                         </div>
                     </div>
@@ -1111,7 +1019,7 @@
                     paragraphs: [
                         "Το Γραφείο Φυσικής Αγωγής του ΓΕΛ Διονύσου καλεί όλους τους μαθητές και τις μαθήτριες της Α', Β' και Γ' Λυκείου που ενδιαφέρονται να ενταχθούν στη σχολική ομάδα βόλεϊ να δηλώσουν συμμετοχή.",
                         "Οι προπονήσεις πραγματοποιούνται κάθε Τρίτη και Πέμπτη (14:30 - 16:00) στο Κλειστό Γυμναστήριο Διονύσου. Απαραίτητη προϋπόθεση για τη συμμετοχή είναι η προσκόμιση έγκυρου Ατομικού Δελτίου Υγείας Μαθητή (Α.Δ.Υ.Μ.).",
-                        "Μπορείτε να συμπληρώσετε ηλεκτρονικά τη φόρμα ενδιαφέροντος στην ιστοσελίδα μας για να κλείσετε θέση στο επόμενο δοκιμαστικό!"
+                        "Για να δηλώσετε συμμετοχή, απευθυνθείτε στους καθηγητές Φυσικής Αγωγής στο σχολείο ή ελάτε απευθείας στην επόμενη προπόνηση!"
                     ]
                 }
             ];
@@ -1331,33 +1239,6 @@
             modalDoneBtn.addEventListener('click', closeModal);
             articleModal.addEventListener('click', (e) => {
                 if (e.target === articleModal) closeModal();
-            });
-
-            // 7. TRYOUT / INTEREST FORM SUBMISSION
-            const tryoutForm = document.getElementById('tryout-form');
-            const formConfirmation = document.getElementById('form-confirmation');
-            const confirmationDetails = document.getElementById('confirmation-details');
-            const newSubmissionBtn = document.getElementById('new-submission-btn');
-
-            tryoutForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('student-name').value.trim();
-                const studentClass = document.getElementById('student-class').value;
-                const position = document.getElementById('student-position').value;
-                const team = document.getElementById('student-team').value;
-
-                confirmationDetails.innerHTML = `
-                    Ευχαριστούμε, <strong>${name}</strong> (${studentClass})! Η αίτησή σου για την <strong>${team}</strong> στη θέση <strong>${position}</strong> εστάλη στο Γραφείο Φυσικής Αγωγής του ΓΕΛ Διονύσου. Σε περιμένουμε την επόμενη Τρίτη στις 14:30 στο Κλειστό Γυμναστήριο Διονύσου!
-                `;
-
-                tryoutForm.classList.add('hidden');
-                formConfirmation.classList.remove('hidden');
-            });
-
-            newSubmissionBtn.addEventListener('click', () => {
-                tryoutForm.reset();
-                formConfirmation.classList.add('hidden');
-                tryoutForm.classList.remove('hidden');
             });
 
             // 8. COPY INSTAGRAM HANDLE WITH CUSTOM TOAST (NO alert())
