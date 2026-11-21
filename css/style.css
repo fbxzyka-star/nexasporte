@@ -387,7 +387,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 .hero h1 {
-  font-size: clamp(40px, min(5.6vw, 10vh), 96px);
+  font-size: clamp(34px, min(4.2vw, 8vh), 72px);
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.02;
@@ -396,7 +396,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .lead {
   margin-top: clamp(14px, 2.6vh, 24px);
-  font-size: clamp(17px, min(1.9vw, 3.3vh), 26px);
+  font-size: clamp(16px, min(1.4vw, 2.7vh), 20px);
   font-weight: 400;
   line-height: 1.45;
   color: #c9d0cc;
@@ -1026,7 +1026,7 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .nav-links a:not(.btn)::after { display: none; }
   .nav-cta-mobile { display: inline-flex; margin-top: 18px; padding: 16px; }
 
-  .hero h1 { font-size: clamp(40px, min(8vw, 10vh), 72px); }
+  .hero h1 { font-size: clamp(34px, min(6.4vw, 8vh), 56px); }
 
   .hero-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 24px; }
 
@@ -1060,8 +1060,8 @@ h2 { font-size: clamp(34px, 4.4vw, 54px); font-weight: 700; }
   .hero-inner { padding-top: 22px; padding-bottom: 46px; gap: 24px; }
   .pill { font-size: 13px; padding: 7px 14px; gap: 10px; margin-bottom: 18px; }
   .dot { width: 8px; height: 8px; }
-  .hero h1 { font-size: clamp(36px, 11.5vw, 56px); line-height: 1.04; }
-  .lead { font-size: 17px; margin-top: 16px; }
+  .hero h1 { font-size: clamp(32px, 9.6vw, 44px); line-height: 1.05; }
+  .lead { font-size: 16px; margin-top: 14px; }
   .br-desktop { display: none; }
   .hero-actions { gap: 16px; margin-top: 26px; }
   .hero-actions .btn-lg { width: 100%; padding: 18px 24px; font-size: 17px; }
